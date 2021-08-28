@@ -1,4 +1,4 @@
-Class Auth {
+class Auth {
   constructor () {
     this.authenicated = false;
   }
