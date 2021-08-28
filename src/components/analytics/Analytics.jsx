@@ -1,12 +1,17 @@
 import React from 'react';
-import Auth from './Auth.js'
+import Auth from '../Auth';
 
-var Analytics = (props) => {
+const Analytics = (props) => {
   var logout = () => {
     Auth.logout(() => {
       props.history.push('/');
     })
   }
+
+
+
+
+
 
   return (
     <div>

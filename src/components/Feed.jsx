@@ -1,5 +1,6 @@
 import React from 'react';
-import Auth from './Auth.js'
+import Auth from './Auth.js';
+import {Switch, Link} from 'react-router-dom';
 
 var Feed = (props) => {
   var logout = () => {
@@ -12,6 +13,7 @@ var Feed = (props) => {
     <div>
       Hi from feed
       <button onClick={logout}>Logout</button>
+        <Link to='/Analytics/Analytics'>Analytics</Link>
     </div>
   )
 }
