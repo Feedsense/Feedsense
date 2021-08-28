@@ -10,11 +10,9 @@ module.exports = {
     rules: [{
         test: /\.(jsx|js)?$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: "babel-loader",
     }]
   },
-  devServer: {
-    historyApiFallback: true,
-  },
+
   mode: "development"
 }
