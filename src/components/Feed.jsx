@@ -13,7 +13,7 @@ var Feed = (props) => {
     <div>
       Hi from feed
       <button onClick={logout}>Logout</button>
-        <Link to='/Analytics/Analytics'>Analytics</Link>
+        <Link to='/Analytics'>Analytics</Link>
     </div>
   )
 }
