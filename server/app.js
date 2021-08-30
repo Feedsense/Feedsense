@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path');
 
 const app = express();
-const {serverip, serverport} = require('../env/config.js');
+const {serverip, serverport} = require('../env/config.js').serverconfig;
 const router = require('./routes');
 const logger = require('morgan');
 
