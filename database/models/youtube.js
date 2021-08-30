@@ -1,4 +1,4 @@
-const pool = require('./connection');
+const pool = require('../connection');
 
 module.exports = {
   getData: (callback) => {
@@ -16,4 +16,3 @@ module.exports = {
       })
   }
 }
-
