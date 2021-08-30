@@ -1,11 +1,14 @@
 const express = require('express')
 const path = require('path');
-const app = express()
-const port = 3001
 
+const app = express();
+app.use(express.json());
 
 app.use(express.static(__dirname + '/../public'));
 
+
+const port = 3001;
+
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log('Success! Server Initialized');
 })
