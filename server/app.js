@@ -1,11 +1,15 @@
 const express = require('express')
 const path = require('path');
-const app = express()
-const port = 3001
 
+const app = express();
+const {serverip, serverport} = require('../env/config.js');
+const router = require('./routes');
+const logger = require('morgan');
 
+app.use(router);
+app.use(logger('dev'));
 app.use(express.static(__dirname + '/../public'));
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(serverport, () => {
+  console.log(`Example app listening at http://${serverip}:${serverport}`)
 })
