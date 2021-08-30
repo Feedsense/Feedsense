@@ -7,11 +7,18 @@ module.exports = {
     path: path.resolve(__dirname, "public")
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(jsx|js)?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
-    }]
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
+      }
+
+  ]
   },
 
   mode: "development"
