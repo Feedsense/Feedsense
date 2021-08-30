@@ -1,25 +1,28 @@
 import React from 'react';
-import Auth from './Auth.js'
-import { GoogleLogin } from 'react-google-login';
+import Auth from './Auth.js';
+import config from '../../env/config.js';
+import GoogleLogin from 'react-google-login';
+
 
 var LandingPage = (props) => {
 
-  const responseGoogle = (res) => {
-    console.log(res)
+
+  const responseGoogle = (response) => {
+    console.log(response);
+
     Auth.login(() => {
       props.history.push('/feed');
     })
   }
-  
+
   return (
     <div>
       Hello World
-      <button onClick={login}>Login</button>
+
       <GoogleLogin
-        clientId="600013893616-bdhqvs5cbrnmjoucotaj1jt2tg5k4vbh.apps.googleusercontent.com"
+        clientId={config.clientId}
         buttonText="Login"
-        redirectUri='http://localhost:3000/feed'
-        onSuccess={login}
+        onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
       />

@@ -1,0 +1,34 @@
+
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*
+app.jsx
+*/
+
+.mainContainer {
+  background-color: #F3F2F3;
+}
+
+/*
+Feed.jsx
+*/
+
+.logo {
+  margin: 2%, 2%, 2%, 5%;
+  max-width: 30%;
+}
+
+.header {
+  width: 100%;
+  height: 93px;
+  background-color: #F5F5F5;
+  margin: .5%, .5%, .5%, .5%;
+}
+
+.navButtonContainer {
+  float: right;
+
+}
