@@ -1,7 +1,10 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, createContext} from 'react';
 import Auth from '../Auth';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
+
+export const TwitterContext = createContext();
+export const YouTubeContext = createContext();
 
 const Analytics = (props) => {
   var logout = () => {
@@ -17,18 +20,18 @@ const Analytics = (props) => {
 
 
 
-
-
-
-
   return (
     <React.Fragment>
       You are now in Analytics
       <button onClick={logout}>Logout</button>
 
       <div className="analytics-head">
-        <Sidebar />
-        <Dashboard />
+        <YouTubeContext.Provider value={fakeYoutubeData} >
+        <TwitterContext.Provider value={fakeTwitterData} >
+          <Sidebar />
+          <Dashboard />
+        </TwitterContext.Provider>
+        </YouTubeContext.Provider>
       </div>
     </React.Fragment>
   )
