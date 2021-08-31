@@ -9,16 +9,6 @@ import '../landingStyle.css';
 
 var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
-  const {signIn} = useGoogleLogin({
-    onSuccess: (res) => console.log(res),
-    clientId: config.clientId,
-    isSignedIn: true,
-    onFailure: (err) => console.log(err),
-    prompt: 'consent'
-  })
-
-  console.log(localStorage)
-
   const history = useHistory();
 
   const [accessToken, setAccessToken] = useState('');
@@ -31,8 +21,6 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
 
   const responseGoogle = (response) => {
-
-    setIsGoogleSignedIn(true);
     
     setAccessToken(response.tokenObj.access_token);
     setIdToken(response.tokenObj.id_token);
@@ -51,19 +39,11 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
     localStorage.given_name = response.profileObj.givenName;
     localStorage.image_url = response.profileObj.imageUrl;
 
-    
     Auth.login(() => {
       history.push('/feed');
     })
     
   }
-
-  useEffect(() => {
-    console.log(isGoogleSignedIn)
-    // if (isGoogleSignedIn) {
-    //   signIn()
-    // }
-  }, [isGoogleSignedIn])
 
   return (
     <div className='landing-page'>
@@ -89,7 +69,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
               onSuccess={responseGoogle}
               onFailure={()=>{return console.error('ERROR WITH OAUTH ID')}}
               cookiePolicy={'single_host_origin'}
-              isSignedIn={true}
+              isSignedIn={false}
             />
         </div>
         <div className='loginSubHead'>

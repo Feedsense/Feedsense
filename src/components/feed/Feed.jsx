@@ -12,7 +12,6 @@ import '../../style.css';
 var Feed = ({ setIsGoogleSignedIn }) => {
 
   const [ exampleData, setExampleData ] = useState(feedExampleData);
-  // setExampleData(feedExampleData);
 
   const history = useHistory();
 
@@ -33,7 +32,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
 
   useEffect(() => {
     signIn()
-    console.log(history)
+    setIsGoogleSignedIn(true);
   }, [])
 
   return (

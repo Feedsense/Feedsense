@@ -15,9 +15,11 @@ var App = () => {
       <Router>
         <Switch>
           <Route exact path="/">
+            {isGoogleSignedIn ? 
+            <Redirect to='/feed'/> : 
             <LandingPage 
               setIsGoogleSignedIn={setIsGoogleSignedIn}
-              isGoogleSignedIn={isGoogleSignedIn}/>
+              isGoogleSignedIn={isGoogleSignedIn}/>}
           </Route>
           <ProtectedRoute 
             exact 
