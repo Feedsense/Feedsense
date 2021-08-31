@@ -13,6 +13,7 @@ const Analytics = (props) => {
     })
   }
 
+
   const [fakeTwitterData, SetFakeTwitterData] = useState({followers: 35910,
     subscriberGrowth: [14032, 15284, 19284, 19894, 20183, 22013, 26019, 27194, 27519, 29475, 34913, 35910],
     monthlyComments: [1943, 1039, 1834, 1092, 2894, 4928, 5993, 5193, 5419, 5219, 7019, 7192]
