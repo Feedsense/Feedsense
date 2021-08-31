@@ -3,8 +3,6 @@ import Auth from './Auth.js';
 import {Switch, Link} from 'react-router-dom';
 import '../style.css';
 
-
-
 var Feed = (props) => {
   var logout = () => {
     Auth.logout(() => {
@@ -23,9 +21,7 @@ var Feed = (props) => {
           <a>Post</a>
           <a onClick={logout}>logout</a>
         </div>
-
       </div>
-
     </div>
   )
 }

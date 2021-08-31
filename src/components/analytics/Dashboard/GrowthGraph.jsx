@@ -23,6 +23,7 @@ const GrowthGraph = () => {
       {
         name: 'YouTube',
         data: youtubeGraphData
+
       }
     ],
     chartOptions: {
@@ -51,6 +52,7 @@ const GrowthGraph = () => {
       setGraphTitle('Comments per Month')
       setTwitterGraphData(twitterData.monthlyComments)
       setYoutubeGraphData(youtubeData.monthlyComments)
+
     }
   }
 
