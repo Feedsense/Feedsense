@@ -10,6 +10,8 @@ import { useGoogleLogin } from 'react-google-login';
 
 var Feed = ({ setIsGoogleSignedIn, isGoogleSignedIn }) => {
 
+  console.log(isGoogleSignedIn);
+
   const {signIn} = useGoogleLogin({
     onSuccess: (res) => console.log(res),
     clientId: config.clientId,
