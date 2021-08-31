@@ -51,7 +51,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
   }
 
   return (
-    <div>
+    <div className='landing-page'>
       <div className='header'></div>
       <div className='body'>
         <div>
@@ -61,7 +61,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
           <div className='wordsBig'>Feedsense</div>
           <div className='wordsSmoll'>the social media aggregator</div>
         </div>
-        <div className='center'>
+        <div className='btn-center'>
           <GoogleLogin
               clientId={config.clientId}
               render={renderProps => (
