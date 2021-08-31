@@ -1,12 +1,14 @@
-import React, {useContext} from 'react';
-import {TwitterContext, YouTubeContext} from '../Analytics.jsx';
+import React from 'react';
+import FollowersChart from './FollowersChart.jsx';
+import TotalFollowers from './TotalFollowers.jsx';
+import GrowthGraph from './GrowthGraph.jsx';
 
 const Dashboard = () => {
-  const twitterData = useContext(TwitterContext);
-  const youtubeData = useContext(YouTubeContext);
   return (
     <div className="dashboard-main">
-      <h3>Total Followers {twitterData.followers + youtubeData.subscribers}</h3>
+      <TotalFollowers />
+      <FollowersChart />
+      <GrowthGraph />
     </div>
   )
 }
