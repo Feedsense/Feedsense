@@ -73,5 +73,5 @@ module.exports = [
       'media': '',
       'createdAt': '2021-08-30T14:18:42-04:00',
       'platform': 'twitter'
-    },
+    }
 ];
