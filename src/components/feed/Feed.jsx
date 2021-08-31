@@ -9,19 +9,21 @@ import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
 
-var Feed = (props) => {
+var Feed = ({ setIsGoogleSignedIn }) => {
 
   const [ exampleData, setExampleData ] = useState(feedExampleData);
   // setExampleData(feedExampleData);
 
+  const history = useHistory();
+
   const {signIn} = useGoogleLogin({
-    onSuccess: (res) => console.log(res),
+    onSuccess: (res) => {
+      console.log(res)
+    },
     clientId: config.clientId,
     isSignedIn: true,
     onFailure: (err) => console.log(err),
   })
-
-  const history = useHistory();
 
   var logout = () => {
     Auth.logout(() => {
@@ -43,7 +45,8 @@ var Feed = (props) => {
         <div className='navButtonContainer'>
           <Link to='/Analytics/Analytics'>Analytics</Link>
           <a>Post</a>
-          <a onClick={() => {
+          <a className='logout-btn' onClick={() => {
+            setIsGoogleSignedIn(false);
             const auth2 = window.gapi.auth2.getAuthInstance()
             if (auth2 != null) {
               auth2.signOut().then(
@@ -51,7 +54,7 @@ var Feed = (props) => {
               )
             }
             localStorage.clear();
-            logout()
+            logout();
           }
           }>logout</a>
         </div>

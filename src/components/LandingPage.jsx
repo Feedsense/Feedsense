@@ -8,6 +8,10 @@ import '../landingStyle.css';
 
 var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
+  setIsGoogleSignedIn(Auth.isAuthenticated())
+
+  console.log(Auth.isAuthenticated())
+
   const history = useHistory();
 
   const [accessToken, setAccessToken] = useState('');
@@ -20,12 +24,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
 
   const responseGoogle = (response) => {
-
-    console.log(Auth.isAuthenticated());
-
-
-    console.log(history);
-
+    
     setAccessToken(response.tokenObj.access_token);
     setIdToken(response.tokenObj.id_token);
     setGoogleId(response.googleId);

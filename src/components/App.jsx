@@ -31,7 +31,10 @@ var App = () => {
             exact 
             path="/Analytics/Analytics" 
             component={Analytics}
-            data={{}}/>
+            data={{
+              isGoogleSignedIn: isGoogleSignedIn,
+              setIsGoogleSignedIn: setIsGoogleSignedIn
+            }}/>
           <Route to='*' component={() => ('404 not found')}/>
         </Switch>
       </Router>
