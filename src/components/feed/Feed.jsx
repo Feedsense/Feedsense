@@ -33,6 +33,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
 
   useEffect(() => {
     signIn()
+    console.log(history)
   }, [])
 
   return (

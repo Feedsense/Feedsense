@@ -29,6 +29,9 @@ var Feed = ({ setIsGoogleSignedIn, isGoogleSignedIn }) => {
 
   useEffect(() => {
     signIn()
+    Auth.login(() => {
+      history.push('/feed')
+    })
   }, [])
 
   return (

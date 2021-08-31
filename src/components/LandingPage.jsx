@@ -8,9 +8,7 @@ import '../landingStyle.css';
 
 var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
-  setIsGoogleSignedIn(Auth.isAuthenticated())
-
-  console.log(Auth.isAuthenticated())
+  console.log(localStorage)
 
   const history = useHistory();
 
