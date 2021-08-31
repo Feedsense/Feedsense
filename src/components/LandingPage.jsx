@@ -4,6 +4,7 @@ import Auth from './Auth.js';
 import config from '../../env/config.js';
 import { GoogleLogin } from 'react-google-login';
 
+import '../landingStyle.css';
 
 var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
@@ -51,17 +52,36 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
   return (
     <div>
-      Hello World
-
-      <GoogleLogin
-        clientId={config.clientId}
-        buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={'single_host_origin'}
-        isSignedIn={true}
-        // redirectUri={Auth.login(() => history.push('/feed'))}
-      />
+      <div className='header'></div>
+      <div className='body'>
+        <div>
+          <img src="Feedsense.JPG" className='logo'></img>
+        </div>
+        <div className='center'>
+          <div className='wordsBig'>Feedsense</div>
+          <div className='wordsSmoll'>the social media aggregator</div>
+        </div>
+        <div className='center'>
+          <GoogleLogin
+              clientId={config.clientId}
+              render={renderProps => (
+                <div id="customBtn" className="customGPlusSignIn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                  <span className="icon"></span>
+                  <span className="buttonText">Login</span>
+                </div>
+              )}
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={()=>{return console.error('ERROR WITH OAUTH ID')}}
+              cookiePolicy={'single_host_origin'}
+              isSignedIn={true}
+            />
+        </div>
+        <div className='loginSubHead'>
+          Please login with google
+        </div>
+      </div>
+      <div className='footer'></div>
     </div>
   )
 };

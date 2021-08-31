@@ -7,6 +7,6 @@ ReactDOM.render(
   <App />,
   document.getElementById('app')
 );
-// <HashRouter>
-//     <App />
-//   </HashRouter>
+//  <HashRouter>
+//    <App />
+//  </HashRouter>

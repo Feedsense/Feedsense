@@ -3,9 +3,8 @@ import {HashRouter as Router, Route, Switch, Link, Redirect} from 'react-router-
 
 import ProtectedRoute from './ProtectedRoute.jsx'
 import LandingPage from './LandingPage.jsx';
-import Feed from './Feed.jsx';
-import Analytics from './Analytics/Analytics.jsx';
-
+import Feed from './feed/Feed.jsx';
+import Analytics from './analytics/Analytics.jsx';
 
 var App = () => {
 

@@ -52,9 +52,7 @@ var Feed = ({ setIsGoogleSignedIn, isGoogleSignedIn }) => {
           }
           }>logout</a>
         </div>
-
       </div>
-
     </div>
   )
 }

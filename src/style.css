@@ -1,5 +1,3 @@
-
-
 * {
   font-family: 'Montserrat', sans-serif;
 }
@@ -16,10 +14,6 @@ app.jsx
 Feed.jsx
 */
 
-.logo {
-  margin: 2%, 2%, 2%, 5%;
-  max-width: 30%;
-}
 
 .header {
   width: 100%;
@@ -33,6 +27,31 @@ Feed.jsx
 
 }
 
+<<<<<<< HEAD
 a {
   cursor: pointer;
 }
+=======
+/*
+Analytics - Start
+*/
+
+.analytics-head {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+}
+
+.dashboard-main {
+  flex-grow: 3;
+}
+
+.sidebar-main {
+  display: flex;
+}
+
+/*
+Analytics - End
+*/
+>>>>>>> efa13367a21b4609b1be2969926b678fc76cbed6
