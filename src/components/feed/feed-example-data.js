@@ -17,7 +17,7 @@ module.exports = [
     },
     {
       'title': 'Mr.Beast Gives away 8 billion dollars',
-      'author': 'Mr.Beast'
+      'author': 'Mr.Beast',
       'video': 'https://www.youtube.com/watch?v=ktyJIj6i4Qw',
       'body': 'Mr.Beast goes beast mode in giving away 8 billion dollars to bezos and Obama',
       'createdAt': '2021-08-30T14:18:42-04:00',
@@ -25,7 +25,7 @@ module.exports = [
     },
     {
       'title': 'Rick and Morty - Get Schwifty',
-      'author': 'Mr.Beast'
+      'author': 'Mr.Beast',
       'video': 'https://www.youtube.com/watch?v=4ctK1aoWuqY',
       'body': 'Mr.Beast goes beast mode in giving away 8 billion dollars to bezos and Obama',
       'createdAt': '2021-08-30T14:18:42-04:00',
@@ -33,14 +33,14 @@ module.exports = [
     },
     {
       'title': 'Mr.Beast Gives away 8 billion dollars',
-      'author': 'Mr.Beast'
+      'author': 'Mr.Beast',
       'video': 'https://www.youtube.com/watch?v=4ctK1aoWuqY',
       'body': 'Mr.Beast goes beast mode in giving away 8 billion dollars to bezos and Obama',
       'createdAt': '2021-08-30T14:18:42-04:00',
       'platform': 'youtube'
     },
     {
-      'Author': 'Elon Musk'
+      'Author': 'Elon Musk',
       'body': 'Do They even know about the Delta Varient?!?!',
       'media': '',
       'createdAt': '2021-08-30T14:18:42-04:00',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Auth from './Auth.js';
+import Auth from '../Auth.js';
 import {Switch, Link} from 'react-router-dom';
 import exampleData from './feed-example-data.js';
 import TwitterFeedTile from './TwitterFeedTile.jsx';
@@ -12,7 +12,7 @@ var Feed = (props) => {
     })
   }
 
-  const [ exampleData, setExampleData ] = useState(exampleData);
+  // const [ exampleData, setExampleData ] = useState(exampleData);
 
   return (
     <div>
@@ -20,7 +20,7 @@ var Feed = (props) => {
         Hi from feed
         <button onClick={logout}>Logout</button>
         <Link to='/Analytics/Analytics'>Analytics</Link>
-      </div>
+      {/* </div>
       <div>
         {exampleData.map((post, index) => {
           if (post.platform === 'youtube') {
@@ -28,9 +28,9 @@ var Feed = (props) => {
           }
           if (post.platform === 'twitter') {
             <TwitterFeedTile postData={post}/>
-          }
+          } */}
 
-        })}
+        {/* })} */}
       </div>
     </div>
   )
