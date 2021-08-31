@@ -1,0 +1,27 @@
+.post-tile{
+  background-color: lightgray;
+  margin: 0 20% 2% 20%;
+  padding: 2% 2%;
+  border-radius: 5px;
+}
+
+.post-tile:hover {
+  background-color: rgb(185, 185, 185);
+}
+
+.TW-icon {
+  margin-left: 1%;
+  float: right;
+  color: #1DA1F2;
+}
+
+.YT-icon {
+  margin-left: 1%;
+  float: right;
+  color: #FF0000;
+}
+
+.timestamp {
+  float: right;
+}
+
