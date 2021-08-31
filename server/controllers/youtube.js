@@ -6,7 +6,7 @@ module.exports = {
       if (err) {
         return console.error('ERROR RETRIEVING DATA: ', err.stack);
       }
-      console.log(req.params);
+      //console.log(req.params);
 
       res.status(200).send();
     });

@@ -4,8 +4,7 @@ import {HashRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute.js'
 import LandingPage from './LandingPage.jsx';
 import Feed from './feed/Feed.jsx';
-import Analytics from './Analytics/Analytics.jsx';
-
+import Analytics from './analytics/Analytics.jsx';
 
 var App = () => {
   return (
