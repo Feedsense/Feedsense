@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {HashRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 import ProtectedRoute from './ProtectedRoute.js'
@@ -7,6 +7,8 @@ import Feed from './feed/Feed.jsx';
 import Analytics from './analytics/Analytics.jsx';
 
 var App = () => {
+
+  var [loggedIn, setLoggedIn] = useState(false);
   return (
     <div className='mainContainer'>
       <Router>
