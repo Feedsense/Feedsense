@@ -20,7 +20,6 @@ const Analytics = (props) => {
     subscriberGrowth: [24119, 25001, 26991, 27102, 87029, 98192, 109205, 127952, 146295, 169300, 183183, 192412]
   })
 
-
   return (
     <React.Fragment>
       <button onClick={logout}>Logout</button>
