@@ -3,10 +3,19 @@ import { useHistory } from 'react-router-dom';
 import Auth from './Auth.js';
 import config from '../../env/config.js';
 import { GoogleLogin } from 'react-google-login';
+import { useGoogleLogin } from 'react-google-login';
 
 import '../landingStyle.css';
 
 var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
+
+  const {signIn} = useGoogleLogin({
+    onSuccess: (res) => console.log(res),
+    clientId: config.clientId,
+    isSignedIn: true,
+    onFailure: (err) => console.log(err),
+    prompt: 'consent'
+  })
 
   console.log(localStorage)
 
@@ -22,6 +31,8 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
 
   const responseGoogle = (response) => {
+
+    setIsGoogleSignedIn(true);
     
     setAccessToken(response.tokenObj.access_token);
     setIdToken(response.tokenObj.id_token);
@@ -46,6 +57,13 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
     })
     
   }
+
+  useEffect(() => {
+    console.log(isGoogleSignedIn)
+    // if (isGoogleSignedIn) {
+    //   signIn()
+    // }
+  }, [isGoogleSignedIn])
 
   return (
     <div className='landing-page'>

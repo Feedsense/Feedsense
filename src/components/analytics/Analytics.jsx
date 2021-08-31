@@ -47,10 +47,9 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
         if (auth2 != null) {
           auth2.signOut().then(
             auth2.disconnect()
-          )
+          ).then(localStorage.clear())
+            .then(logout())
         }
-        localStorage.clear();
-        logout();
       }
       }>logout</a>
       <div className="analytics-head">
