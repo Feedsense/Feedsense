@@ -14,11 +14,8 @@ var LandingPage = (props) => {
   }
 
   const responseGoogle = (response) => {
-    console.log(response);
-
-    Auth.login(() => {
-      props.history.push('/feed');
-    })
+    // console.log(response);
+    login();
   }
 
   return (
@@ -35,15 +32,15 @@ var LandingPage = (props) => {
         <div className='center'>
           <GoogleLogin
               clientId={config.clientId}
-              render={renderProps => (
-                <div id="customBtn" className="customGPlusSignIn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                  <span className="icon"></span>
-                  <span className="buttonText">Login</span>
-                </div>
-              )}
+              // render={renderProps => (
+              //   <div id="customBtn" className="customGPlusSignIn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+              //     <span className="icon"></span>
+              //     <span className="buttonText">Login</span>
+              //   </div>
+              // )}
               buttonText="Login"
               onSuccess={responseGoogle}
-              onFailure={responseGoogle}
+              onFailure={()=>{return console.error('ERROR WITH OAUTH ID')}}
               cookiePolicy={'single_host_origin'}
             />
         </div>

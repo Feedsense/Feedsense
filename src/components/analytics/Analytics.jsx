@@ -8,11 +8,6 @@ const Analytics = (props) => {
     })
   }
 
-
-
-
-
-
   return (
     <div>
       Hi from Analytics
