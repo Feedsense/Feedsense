@@ -4,6 +4,7 @@ import {Switch, Link} from 'react-router-dom';
 import feedExampleData from './feed-example-data.js';
 import TwitterFeedTile from './TwitterFeedTile.jsx';
 import YouTubeFeedTile from './YouTubeFeedTile.jsx';
+import '../../feedStyle.css';
 
 console.log(feedExampleData);
 
@@ -25,18 +26,17 @@ var Feed = (props) => {
         <Link to='/Analytics/Analytics'>Analytics</Link>
       </div>
       <div>
-        {console.log(exampleData)}
         {exampleData.map((post, index) => {
-          if (post.platform === 'youtube') {
-            <YouTubeFeedTile postData={post}/>
+          if (post['platform'] === 'youtube') {
+            return <YouTubeFeedTile key={index} postData={post}/>
           }
-          if (post.platform === 'twitter') {
-            <TwitterFeedTile postData={post}/>
+          if (post['platform'] === 'twitter') {
+            return <TwitterFeedTile key={index} postData={post}/>
           }
         })}
       </div>
     </div>
-  )
+  );
 }
 
 export default Feed;
