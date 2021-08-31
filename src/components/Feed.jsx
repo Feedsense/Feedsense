@@ -18,7 +18,7 @@ var Feed = ({ setIsGoogleSignedIn, isGoogleSignedIn }) => {
   })
 
   const history = useHistory();
-  console.log(window.location.pathname)
+
   var logout = () => {
     Auth.logout(() => {
       history.push('/');
