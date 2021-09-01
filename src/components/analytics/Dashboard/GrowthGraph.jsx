@@ -30,6 +30,9 @@ const GrowthGraph = () => {
       stroke: {
         curve: 'smooth'
       },
+      toolbar: {
+        show: false
+      },
       dataLabels: {
         enabled: false
       },
@@ -44,30 +47,32 @@ const GrowthGraph = () => {
     setChecked(nextChecked)
 
     if (checked === true) {
-      setGraphTitle('Subscriber Growth')
+      setGraphTitle('Subscriber Growth per Month')
       setTwitterGraphData(twitterData.subscriberGrowth)
       setYoutubeGraphData(youtubeData.subscriberGrowth)
     } else {
-      setGraphTitle('Comments per Month')
+      setGraphTitle('Total Comments per Month')
       setTwitterGraphData(twitterData.monthlyComments)
       setYoutubeGraphData(youtubeData.monthlyComments)
     }
   }
 
   return (
-    <div>
-      <h3>{graphTitle}</h3>
-      <div>
-        <h4>Subscribers</h4>
-        <Switch
-          onChange={flipSwitch}
-          checked={checked}
-          onColor="#86d3ff"
-          offColor="#86d3ff"
-          uncheckedIcon={false}
-          checkedIcon={false}
-          />
-        <h4>Comments</h4>
+    <div className="outline">
+      <div className="inline-row split">
+        <h3>{graphTitle}</h3>
+        <div className="inline-row equalVertical">
+          <h4>Subscribers</h4>
+          <Switch
+            onChange={flipSwitch}
+            checked={checked}
+            onColor="#86d3ff"
+            offColor="#86d3ff"
+            uncheckedIcon={false}
+            checkedIcon={false}
+            />
+          <h4>Comments</h4>
+        </div>
       </div>
       <Chart
         options={growthChart.chartOptions}

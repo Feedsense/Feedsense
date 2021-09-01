@@ -16,7 +16,7 @@ const FollowersChart = () => {
   }
 
   return (
-    <div>
+    <div className="outline">
       <h3>Followers Breakdown</h3>
       <Chart
         options={followersChart.chartOptions}
