@@ -9,8 +9,17 @@ import '../../feedStyle.css';
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
+// import TWModalViewer from '../modals/TW-modal/modalViewer.jsx'
+import YTModalViewer from '../modals/YT-modal/useModal.jsx'
+import YTModal from '../modals/YT-modal/Modal.jsx'
+import TWModalViewer from '../modals/TW-modal/useModal.jsx'
+import TWModal from '../modals/TW-modal/Modal.jsx'
 
 var Feed = ({ setIsGoogleSignedIn }) => {
+
+  const {isYTShowing, toggleYT} = YTModalViewer();
+
+  const {isTWShowing, toggleTW} = TWModalViewer();
 
   const [ exampleData, setExampleData ] = useState(feedExampleData);
 
@@ -45,7 +54,16 @@ var Feed = ({ setIsGoogleSignedIn }) => {
         </div>
         <div className='navButtonContainer'>
           <Link to='/Analytics/Analytics'>Analytics</Link>
-          <a>Post</a>
+          <button onClick={toggleYT}>Post a Video</button>
+          <YTModal
+            isYTShowing={isYTShowing}
+            hide={toggleYT}
+          />
+          <button onClick={toggleYT}>Post A Tweet</button>
+          <TWModal
+            isYTShowing={isYTShowing}
+            hide={toggleYT}
+          />
           <a className='logout-btn' onClick={() => {
             setIsGoogleSignedIn(false);
             const auth2 = window.gapi.auth2.getAuthInstance()
