@@ -38,6 +38,7 @@
     "react-google-login": "^5.2.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.1",
+    "react-switch": "^6.0.0",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.0.0"
