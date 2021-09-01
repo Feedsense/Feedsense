@@ -1,6 +1,6 @@
 class Auth {
   constructor () {
-    this.authenicated = false;
+    this.authenicated = localStorage.access_token ? true : false;
   }
 
   login (cb) {
