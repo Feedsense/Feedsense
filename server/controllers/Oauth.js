@@ -2,10 +2,6 @@ const Oauth = require('../../database/models/Oauth.js');
 
 module.exports = {
   newUser: (req, res) => {
-<<<<<<< HEAD
-=======
-    console.log(typeof req.params)
->>>>>>> e2fe43406fced7bdea30e790a7b5b91ed70cb82d
     var given_name = req.params.gname;
     var family_name = req.params.fname;
     var oauth_id = req.params.id;

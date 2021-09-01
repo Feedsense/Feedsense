@@ -41,7 +41,7 @@ for (var i = 0; i < data.length; i++) {
     tweets.push(tweet);
   }
 }
-  console.log(tweets);
+  // console.log(tweets);
 };
 
 getTweet = () => {
@@ -50,7 +50,7 @@ getTweet = () => {
 
 postTweet = () => {
   T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
-  console.log(data)
+  // console.log(data)
   })
 
 

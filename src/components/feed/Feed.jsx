@@ -14,6 +14,7 @@ import axios from 'axios';
 var Feed = ({ setIsGoogleSignedIn }) => {
 
   const [ exampleData, setExampleData ] = useState(feedExampleData);
+  const [ youtubeVideos, setYoutubeVideos ] = useState([]);
 
   const history = useHistory();
 
@@ -39,7 +40,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
     if( localStorage.access_token) {
       axios.get(`/getYoutube/${localStorage.access_token}`)
         .then(data => {
-          console.log(data);
+          setYoutubeVideos(data);
         })
         .catch( err => {
           console.error('ERROR RETRIEVING DATA: ', err.stack);
