@@ -11,5 +11,5 @@ app.use(logger('dev'));
 app.use(express.static(__dirname + '/../public'));
 
 app.listen(serverport, () => {
-  console.log(`Example app listening at http://${serverip}:${serverport}`)
+  console.log(`Feedsense listening at http://${serverip}:${serverport}`)
 })
