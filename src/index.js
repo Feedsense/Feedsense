@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {HashRouter} from 'react-router-dom';
+import App from './components/App.jsx'
 
 ReactDOM.render(
-  <h1>hello world!</h1>,
+  <App />,
   document.getElementById('app')
 );
+//  <HashRouter>
+//    <App />
+//  </HashRouter>
