@@ -5,13 +5,10 @@ import {Switch, Link} from 'react-router-dom';
 import feedExampleData from './feed-example-data.js';
 import TwitterFeedTile from './TwitterFeedTile.jsx';
 import YouTubeFeedTile from './YouTubeFeedTile.jsx';
-<<<<<<< HEAD
 import '../../feedStyle.css';
-=======
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
->>>>>>> 6af3cda8f4c06708885aab0ed8a5c3900c93be5d
 
 var Feed = ({ setIsGoogleSignedIn }) => {
 

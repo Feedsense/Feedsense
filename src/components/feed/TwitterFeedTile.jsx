@@ -6,7 +6,7 @@ var TwitterFeedTile = (props) => {
 
   return (
     <div className="post-tile">
-      <i class="TW-icon fab fa-twitter"></i>
+      <i className="TW-icon fab fa-twitter"></i>
       <div className="timestamp">{moment(props.postData.createdAt).startOf('hour').fromNow()}</div>
       <div className="twitter-author"><b>@{props.postData.author}</b></div>
       <br></br>
