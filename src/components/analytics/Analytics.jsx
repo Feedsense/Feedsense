@@ -5,11 +5,14 @@ import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
+import axios from 'axios';
 
 export const TwitterContext = createContext();
 export const YouTubeContext = createContext();
 
 const Analytics = ({ setIsGoogleSignedIn }) => {
+
+  const [youtubeAnalyticsData, setYoutubeAnalyticsData] = useState([]);
 
   const history = useHistory();
 
@@ -30,6 +33,18 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
 
   useEffect(() => {
     signIn()
+
+    if (localStorage.access_token) {
+      axios.get(`/getYoutubeAnalytics/${localStorage.access_token}`)
+        .then((response) => {
+          console.log(response)
+          setYoutubeAnalyticsData(response.data);
+          console.log(youtubeAnalyticsData)
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+    }
   }, [])
 
   const [fakeTwitterData, SetFakeTwitterData] = useState({followers: 35910,
