@@ -14,11 +14,8 @@ var LandingPage = (props) => {
   }
 
   const responseGoogle = (response) => {
-    console.log(response);
-
-    Auth.login(() => {
-      props.history.push('/feed');
-    })
+    // console.log(response);
+    login();
   }
 
   return (
@@ -43,7 +40,11 @@ var LandingPage = (props) => {
               )}
               buttonText="Login"
               onSuccess={responseGoogle}
+<<<<<<< HEAD
               onFailure={responseGoogle}
+=======
+              onFailure={()=>{return console.error('ERROR WITH OAUTH ID')}}
+>>>>>>> 63b68982f3d57ae1bf4f41460a910c18c49305b9
               cookiePolicy={'single_host_origin'}
             />
         </div>
