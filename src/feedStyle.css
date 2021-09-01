@@ -1,11 +1,22 @@
-.post-tile{
+.YT-post-tile{
   background-color: lightgray;
-  margin: 0 20% 2% 20%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  grid-auto-rows: minmax(100px, auto);
+  margin: 0 25% 2% 25%;
   padding: 2% 2%;
   border-radius: 5px;
 }
 
-.post-tile:hover {
+.TW-post-tile{
+  background-color: lightgray;
+  margin: 0 25% 2% 25%;
+  padding: 2% 2%;
+  border-radius: 5px;
+}
+
+.TW-post-tile:hover, .YT-post-tile:hover {
   background-color: rgb(185, 185, 185);
 }
 
@@ -19,6 +30,16 @@
   margin-left: 1%;
   float: right;
   color: #FF0000;
+}
+
+.tile-img {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.tile-content {
+  grid-column: 2 / 7;
+  grid-row: 1;
 }
 
 .timestamp {
