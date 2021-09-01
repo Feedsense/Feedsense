@@ -1,12 +1,7 @@
 const e = require('express');
 var Twit = require('twit')
+var config = require('./twitterConfig.js');
 
-var config = {
-  consumer_key:        'nw1DPSO7B2cznA4RTtIio82S3',
-  consumer_secret:     'lgsDl5lUoF2W5Cqp2s25J8QBIfRQsJW33OJFYk5HCQPmyL2PqR',
-  access_token:        '1419694577443803138-C5MRsnJvUDaKNhaX3FmPuXJ7IFJmKn',
-  access_token_secret: 'vCM3SpzJmRsc1NWTZZOl20hOaHsYXEnyT3sGH7BZPFR1G'
-}
 var T = new Twit(config);
 
 var params = {
