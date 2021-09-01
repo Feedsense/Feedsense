@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Modal = ({ isYTShowing, hide }) => isYTShowing ? ReactDOM.createPortal(
+const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
   <React.Fragment>
     <div className="modal-overlay"/>
     <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
@@ -12,15 +12,8 @@ const Modal = ({ isYTShowing, hide }) => isYTShowing ? ReactDOM.createPortal(
           </button>
         </div>
         <p>
-          Post A Video To YouTube!
+          Hello, I'm a modal.
         </p>
-        <form>
-          <label>
-            Status:
-            <input type="text" name="name" required/>
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
       </div>
     </div>
   </React.Fragment>, document.body

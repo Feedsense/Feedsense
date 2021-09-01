@@ -9,17 +9,13 @@ import '../../feedStyle.css';
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
-import YTModalViewer from '../modals/YT-modal/useModal.jsx'
-import YTModal from '../modals/YT-modal/Modal.jsx'
-import TWModalViewer from '../modals/TW-modal/useModal.jsx'
-import TWModal from '../modals/TW-modal/Modal.jsx'
+import Modal from '../modals/Modal.jsx';
+import ModalViewer from '../modals/useModal.jsx'
 import axios from 'axios';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
 
-  const {isYTShowing, toggleYT} = YTModalViewer();
-
-  const {isTWShowing, toggleTW} = TWModalViewer();
+  const {isShowing, toggle} = ModalViewer();
 
   const [ exampleData, setExampleData ] = useState(feedExampleData);
   const [ youtubeVideos, setYoutubeVideos ] = useState([]);
@@ -68,15 +64,10 @@ var Feed = ({ setIsGoogleSignedIn }) => {
         </div>
         <div className='navButtonContainer'>
           <Link to='/Analytics/Analytics'>Analytics</Link>
-          <button onClick={toggleYT}>Post a Video</button>
-          <YTModal
-            isYTShowing={isYTShowing}
-            hide={toggleYT}
-          />
-          <button onClick={toggleYT}>Post A Tweet</button>
-          <TWModal
-            isYTShowing={isYTShowing}
-            hide={toggleYT}
+          <button onClick={toggle}>Post a Video</button>
+          <Modal
+            isShowing={isShowing}
+            hide={toggle}
           />
           <a className='logout-btn' onClick={() => {
             setIsGoogleSignedIn(false);
