@@ -18,7 +18,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
   const {isShowing, toggle} = ModalViewer();
 
   const [ exampleData, setExampleData ] = useState(feedExampleData);
-  const [ youtubeVideos, setYoutubeVideos ] = useState([]);
+  const [ socialMediaData, setsSocialMediaData ] = useState([]);
 
   const history = useHistory();
 
@@ -44,7 +44,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
     if( localStorage.access_token) {
       axios.get(`/getYoutube/${localStorage.access_token}`)
         .then(data => {
-          setYoutubeVideos(data);
+          setSocialMediaData(data);
         })
         .catch( err => {
           console.error('ERROR RETRIEVING DATA: ', err.stack);
@@ -64,7 +64,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
         </div>
         <div className='navButtonContainer'>
           <Link to='/Analytics/Analytics'>Analytics</Link>
-          <button onClick={toggle}>Post a Video</button>
+          <button onClick={toggle}>Post to Social Media</button>
           <Modal
             isShowing={isShowing}
             hide={toggle}
