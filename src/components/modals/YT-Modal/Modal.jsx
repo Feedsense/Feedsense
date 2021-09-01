@@ -12,8 +12,15 @@ const Modal = ({ isYTShowing, hide }) => isYTShowing ? ReactDOM.createPortal(
           </button>
         </div>
         <p>
-          Hello, I'm a modal.
+          Post A Video To YouTube!
         </p>
+        <form>
+          <label>
+            Status:
+            <input type="text" name="name" required/>
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     </div>
   </React.Fragment>, document.body
