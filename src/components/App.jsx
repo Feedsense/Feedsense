@@ -15,23 +15,23 @@ var App = () => {
       <Router>
         <Switch>
           <Route exact path="/">
-            {isGoogleSignedIn ? 
-            <Redirect to='/feed'/> : 
-            <LandingPage 
+            {isGoogleSignedIn ?
+            <Redirect to='/feed'/> :
+            <LandingPage
               setIsGoogleSignedIn={setIsGoogleSignedIn}
               isGoogleSignedIn={isGoogleSignedIn}/>}
           </Route>
-          <ProtectedRoute 
-            exact 
-            path="/feed" 
-            component={Feed} 
+          <ProtectedRoute
+            exact
+            path="/feed"
+            component={Feed}
             data={{
               isGoogleSignedIn: isGoogleSignedIn,
               setIsGoogleSignedIn: setIsGoogleSignedIn
             }}/>
-          <ProtectedRoute 
-            exact 
-            path="/Analytics/Analytics" 
+          <ProtectedRoute
+            exact
+            path="/Analytics/Analytics"
             component={Analytics}
             data={{
               isGoogleSignedIn: isGoogleSignedIn,

@@ -21,7 +21,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
 
   const responseGoogle = (response) => {
-    
+
     setAccessToken(response.tokenObj.access_token);
     setIdToken(response.tokenObj.id_token);
     setGoogleId(response.googleId);
@@ -42,8 +42,9 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
     Auth.login(() => {
       history.push('/feed');
     })
-    
+
   }
+
 
   return (
     <div className='landing-page'>
@@ -73,6 +74,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
               scope='https://www.googleapis.com/auth/youtubepartner https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/yt-analytics-monetary.readonly https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly'
             />
         </div>
+
         <div className='loginSubHead'>
           Please login with google
         </div>
@@ -83,3 +85,4 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 };
 
 export default LandingPage;
+
