@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-=======
 import React, { useState, useEffect } from 'react';
 import config from '../../../env/config.js';
->>>>>>> 6af3cda8f4c06708885aab0ed8a5c3900c93be5d
 import Auth from '../Auth.js';
 import {Switch, Link} from 'react-router-dom';
 import feedExampleData from './feed-example-data.js';
@@ -28,27 +24,16 @@ var Feed = ({ setIsGoogleSignedIn }) => {
     onFailure: (err) => console.log(err),
   })
 
-<<<<<<< HEAD
-console.log(feedExampleData);
-
-var Feed = (props) => {
-=======
->>>>>>> 6af3cda8f4c06708885aab0ed8a5c3900c93be5d
   var logout = () => {
     Auth.logout(() => {
       history.push('/');
     })
   }
 
-<<<<<<< HEAD
-  const [ exampleData, setExampleData ] = useState(feedExampleData);
-  // setExampleData(feedExampleData);
-=======
   useEffect(() => {
     signIn()
     setIsGoogleSignedIn(true);
   }, [])
->>>>>>> 6af3cda8f4c06708885aab0ed8a5c3900c93be5d
 
   return (
     <div>
