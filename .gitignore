@@ -1,5 +1,4 @@
 bundle.js
 /node_modules
-
-
-config.js
+/API/twitterConfig.js
+/env/config.js
