@@ -9,5 +9,7 @@ router.get('/auth/:fname/:gname/:id', OauthCtrl.newUser);
 router.put('/authAddTwitter/:id/:tid', OauthCtrl.updateTwitter);
 router.put('/authAddYoutube/:id/:yid', OauthCtrl.updateYoutube);
 
+router.get('/getYoutube/:access_token', youtubeCtrl.getFeed);
+
 
 module.exports = router;

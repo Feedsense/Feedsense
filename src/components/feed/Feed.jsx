@@ -9,11 +9,11 @@ import '../../feedStyle.css';
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
-// import TWModalViewer from '../modals/TW-modal/modalViewer.jsx'
 import YTModalViewer from '../modals/YT-modal/useModal.jsx'
 import YTModal from '../modals/YT-modal/Modal.jsx'
 import TWModalViewer from '../modals/TW-modal/useModal.jsx'
 import TWModal from '../modals/TW-modal/Modal.jsx'
+import axios from 'axios';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
 
@@ -22,6 +22,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
   const {isTWShowing, toggleTW} = TWModalViewer();
 
   const [ exampleData, setExampleData ] = useState(feedExampleData);
+  const [ youtubeVideos, setYoutubeVideos ] = useState([]);
 
   const history = useHistory();
 
@@ -43,7 +44,20 @@ var Feed = ({ setIsGoogleSignedIn }) => {
   useEffect(() => {
     signIn()
     setIsGoogleSignedIn(true);
+
+    if( localStorage.access_token) {
+      axios.get(`/getYoutube/${localStorage.access_token}`)
+        .then(data => {
+          setYoutubeVideos(data);
+        })
+        .catch( err => {
+          console.error('ERROR RETRIEVING DATA: ', err.stack);
+        });
+    }
   }, [])
+
+
+
 
   return (
     <div>
