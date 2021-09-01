@@ -4,7 +4,7 @@ DROP TABLE public.users;
 
 CREATE TABLE public.users (
   id serial NOT NULL PRIMARY KEY,
-  give_name text,
+  given_name text,
   family_name text,
   oauth_id text,
   twitter_key text,

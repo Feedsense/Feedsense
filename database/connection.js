@@ -4,8 +4,9 @@ const {dbconfig} = require('../env/config.js')
 const options = {
   host: dbconfig.dbhost,
   port: 5432,
-  user: dbconfig.dbuser,
-  password: dbconfig.dbpassword
+  database: 'feedsense'
+  // user: dbconfig.dbuser,
+  // password: dbconfig.dbpassword
 }
 const pool = new Pool(options);
 
