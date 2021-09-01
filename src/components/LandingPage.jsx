@@ -70,6 +70,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
               onFailure={()=>{return console.error('ERROR WITH OAUTH ID')}}
               cookiePolicy={'single_host_origin'}
               isSignedIn={false}
+              scope='https://www.googleapis.com/auth/youtubepartner https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/yt-analytics-monetary.readonly https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly'
             />
         </div>
         <div className='loginSubHead'>
