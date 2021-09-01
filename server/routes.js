@@ -11,6 +11,7 @@ router.put('/authAddYoutube/:id/:yid', OauthCtrl.updateYoutube);
 
 router.get('/getYoutube/:access_token', youtubeCtrl.getFeed);
 router.get('/getYoutubeAnalytics/:access_token', youtubeCtrl.getAnalytics);
+router.get('/getYoutubeChannelAnalytics/:access_token', youtubeCtrl.getChannelAnalytics);
 
 
 module.exports = router;

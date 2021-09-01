@@ -13,6 +13,7 @@ export const YouTubeContext = createContext();
 const Analytics = ({ setIsGoogleSignedIn }) => {
 
   const [youtubeAnalyticsData, setYoutubeAnalyticsData] = useState([]);
+  const [youtubeChannelAnalyticsData, setYoutubeChannelAnalyticsData] = useState([]);
 
   const history = useHistory();
 
@@ -39,7 +40,15 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
         .then((response) => {
           console.log(response)
           setYoutubeAnalyticsData(response.data);
-          console.log(youtubeAnalyticsData)
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+
+        axios.get(`/getYoutubeChannelAnalytics/${localStorage.access_token}`)
+        .then((response) => {
+          console.log(response)
+          setYoutubeChannelAnalyticsData(response.data);
         })
         .catch((err) => {
           console.error(err);

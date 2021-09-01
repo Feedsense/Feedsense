@@ -31,7 +31,6 @@ module.exports = {
 
   getAnalytics: (req, res) => {
     let url = `https://youtubeanalytics.googleapis.com/v2/reports`;
-    console.log(req.params)
     let token = req.params.access_token;
 
     axios.get(url, {
@@ -55,5 +54,60 @@ module.exports = {
       console.error(err);
     })
 
+  },
+
+  getChannelAnalytics: (req, res) => {
+    let url = `https://youtubeanalytics.googleapis.com/v2/reports`;
+    let token = req.params.access_token;
+
+    axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      params: {
+        ids: 'channel==MINE',
+        endDate: '2021-01-01',
+        metrics: 'estimatedMinutesWatched,averageViewPercentage,averageViewDuration,views,comments,likes,dislikes,shares,subscribersGained,subscribersLost',
+        startDate: '2018-01-01',
+        dimensions: 'video',
+        maxResults: '100',
+        sort: '-views'
+      }
+    })
+    .then((response) => {
+      let totalAverages = []
+      let columns = response.data.columnHeaders.map((column) => {
+        return column.name
+      });
+      let rows = response.data.rows;
+      for (let i = 0; i < rows.length; i++) {
+        let currentRow = rows[i]
+        for (let j = 0; j < currentRow.length; j++) {
+          if (j === 0) {
+            totalAverages[j] = 'averages for all videos combined'
+          } else {
+            if (totalAverages[j] === undefined) {
+              totalAverages[j] = currentRow[j]
+            } else {
+              totalAverages[j] += currentRow[j]
+            }
+          }
+        }
+      }
+      for (let i = 0; i < totalAverages.length; i++) {
+        if (typeof totalAverages[i] === 'number') {
+          totalAverages[i] = totalAverages[i] / rows.length;
+        }
+      }
+      columns.shift();
+      totalAverages.shift();
+      res.status(200).send({
+        averages: totalAverages,
+        columns: columns
+      })
+    })
+    .catch((err) => {
+      console.error(err);
+    })
   }
 }
