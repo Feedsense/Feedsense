@@ -5,6 +5,7 @@ import {Switch, Link} from 'react-router-dom';
 import feedExampleData from './feed-example-data.js';
 import TwitterFeedTile from './TwitterFeedTile.jsx';
 import YouTubeFeedTile from './YouTubeFeedTile.jsx';
+import '../../feedStyle.css';
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
@@ -62,18 +63,17 @@ var Feed = ({ setIsGoogleSignedIn }) => {
 
 
       <div>
-        {console.log(exampleData)}
         {exampleData.map((post, index) => {
-          if (post.platform === 'youtube') {
-            <YouTubeFeedTile postData={post}/>
+          if (post['platform'] === 'youtube') {
+            return <YouTubeFeedTile key={index} postData={post}/>
           }
-          if (post.platform === 'twitter') {
-            <TwitterFeedTile postData={post}/>
+          if (post['platform'] === 'twitter') {
+            return <TwitterFeedTile key={index} postData={post}/>
           }
         })}
       </div>
     </div>
-  )
+  );
 }
 
 export default Feed;
