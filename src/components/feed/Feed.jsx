@@ -9,6 +9,7 @@ import '../../feedStyle.css';
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
+import axios from 'axios';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
 
@@ -34,7 +35,20 @@ var Feed = ({ setIsGoogleSignedIn }) => {
   useEffect(() => {
     signIn()
     setIsGoogleSignedIn(true);
+
+    if( localStorage.access_token) {
+      axios.get(`/getYoutube/${localStorage.access_token}`)
+        .then(data => {
+          console.log(data);
+        })
+        .catch( err => {
+          console.error('ERROR RETRIEVING DATA: ', err.stack);
+        });
+    }
   }, [])
+
+
+
 
   return (
     <div>
