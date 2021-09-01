@@ -49,12 +49,14 @@ for (var i = 0; i < data.length; i++) {
   console.log(tweets);
 };
 
-export getTweet = () => {
+getTweet = () => {
   T.get('statuses/home_timeline', params, formatRetrievedData);
 }
 
-export postTweet = () => {
+postTweet = () => {
   T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
   console.log(data)
-  }
-})
+  })
+
+
+
