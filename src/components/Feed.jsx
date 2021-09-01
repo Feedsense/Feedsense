@@ -1,16 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Auth from './Auth.js';
 import {Switch, Link} from 'react-router-dom';
+import config from '../../env/config.js';
 import '../style.css';
+import { useGoogleLogin } from 'react-google-login';
 
 
 
-var Feed = (props) => {
+var Feed = ({ setIsGoogleSignedIn, isGoogleSignedIn }) => {
+
+  console.log(isGoogleSignedIn);
+
+  const {signIn} = useGoogleLogin({
+    onSuccess: (res) => console.log(res),
+    clientId: config.clientId,
+    isSignedIn: true,
+    onFailure: (err) => console.log(err),
+  })
+
+  const history = useHistory();
+
   var logout = () => {
     Auth.logout(() => {
-      props.history.push('/');
+      history.push('/');
     })
   }
+
+  useEffect(() => {
+    signIn()
+    Auth.login(() => {
+      history.push('/feed')
+    })
+  }, [])
 
   return (
     <div>
@@ -21,11 +43,19 @@ var Feed = (props) => {
         <div className='navButtonContainer'>
           <Link to='/Analytics/Analytics'>Analytics</Link>
           <a>Post</a>
-          <a onClick={logout}>logout</a>
+          <a onClick={() => {
+            const auth2 = window.gapi.auth2.getAuthInstance()
+            if (auth2 != null) {
+              auth2.signOut().then(
+                auth2.disconnect()
+              )
+            }
+            localStorage.clear();
+            logout()
+          }
+          }>logout</a>
         </div>
-
       </div>
-
     </div>
   )
 }

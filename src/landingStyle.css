@@ -1,0 +1,99 @@
+
+
+#customBtn {
+  display: inline-block;
+  background: white;
+  color: #444;
+  width: 250px;
+  border-radius: 5px;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  white-space: nowrap;
+}
+#customBtn:hover {
+  cursor: pointer;
+  background-color:#F5F5F5;
+}
+span.label {
+  font-family: serif;
+  font-weight: normal;
+}
+span.icon {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg') transparent 5px 50% no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 42px;
+  height: 42px;
+}
+span.buttonText {
+  display: inline-block;
+  vertical-align: middle;
+  /* padding-left: 42px;
+  padding-right: 42px; */
+  font-size: 14px;
+  font-weight:100;
+  /* Use the Roboto font that is loaded in the <head> */
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  width: 100%;
+  height: 93px;
+  background-color: #F5F5F5;
+  margin: .5%, .5%, .5%, .5%;
+}
+
+.body {
+  width: 100%;
+  height: 750px;
+  background-color: #F3F2F3;
+  margin: .5%, .5%, .5%, .5%;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  height: 93px;
+  background-color: #F5F5F5;
+  margin: .5%, .5%, .5%, .5%;
+}
+
+.logo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+  margin: 1.5%;
+}
+
+.btn-center {
+  align-items: center;
+  text-align: center;
+  margin: 0.6% 1.5% 1.5%;
+}
+
+.wordsSmoll {
+  font-size: x-large;
+}
+
+.loginSubHead {
+  font-size: large;
+}
+
+.wordsBig {
+  font-size: 85px;
+  margin-bottom: 4%;
+}
+
+.landing-page {
+  height: 100%;
+}
+

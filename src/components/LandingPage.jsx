@@ -1,36 +1,82 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Auth from './Auth.js';
 import config from '../../env/config.js';
-import GoogleLogin from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
+import { useGoogleLogin } from 'react-google-login';
 
+import '../landingStyle.css';
 
-var LandingPage = (props) => {
+var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
-  var login = () => {
-    Auth.login(() => {
-      props.history.push('/feed');
-    })
-  }
+  const history = useHistory();
+
+  const [accessToken, setAccessToken] = useState('');
+  const [idToken, setIdToken] = useState('');
+  const [googleId, setGoogleId] = useState('');
+  const [email, setEmail] = useState('');
+  const [familyName, setFamilyName] = useState('');
+  const [givenName, setGivenName] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+
 
   const responseGoogle = (response) => {
-    console.log(response);
+    
+    setAccessToken(response.tokenObj.access_token);
+    setIdToken(response.tokenObj.id_token);
+    setGoogleId(response.googleId);
+    setEmail(response.profileObj.email);
+    setFamilyName(response.profileObj.familyName);
+    setGivenName(response.profileObj.givenName);
+    setImageUrl(response.profileObj.imageUrl);
+
+    localStorage.clear();
+    localStorage.access_token = response.tokenObj.access_token;
+    localStorage.id_token = response.tokenObj.id_token;
+    localStorage.google_id = response.googleId;
+    localStorage.email = response.profileObj.email;
+    localStorage.family_name = response.profileObj.familyName;
+    localStorage.given_name = response.profileObj.givenName;
+    localStorage.image_url = response.profileObj.imageUrl;
 
     Auth.login(() => {
-      props.history.push('/feed');
+      history.push('/feed');
     })
+    
   }
 
   return (
-    <div>
-      Hello World
-
-      <GoogleLogin
-        clientId={config.clientId}
-        buttonText="Login"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={'single_host_origin'}
-      />
+    <div className='landing-page'>
+      <div className='header'></div>
+      <div className='body'>
+        <div>
+          <img src="Feedsense.JPG" className='logo'></img>
+        </div>
+        <div className='center'>
+          <div className='wordsBig'>Feedsense</div>
+          <div className='wordsSmoll'>the social media aggregator</div>
+        </div>
+        <div className='btn-center'>
+          <GoogleLogin
+              clientId={config.clientId}
+              render={renderProps => (
+                <div id="customBtn" className="customGPlusSignIn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                  <span className="icon"></span>
+                  <span className="buttonText">Login</span>
+                </div>
+              )}
+              buttonText="Login"
+              onSuccess={responseGoogle}
+              onFailure={()=>{return console.error('ERROR WITH OAUTH ID')}}
+              cookiePolicy={'single_host_origin'}
+              isSignedIn={false}
+            />
+        </div>
+        <div className='loginSubHead'>
+          Please login with google
+        </div>
+      </div>
+      <div className='footer'></div>
     </div>
   )
 };
