@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import config from '../../../env/config.js';
 import Auth from '../Auth.js';
 import {Switch, Link} from 'react-router-dom';
@@ -10,15 +11,12 @@ import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
 import Modal from '../modals/Modal.jsx';
-import ModalViewer from '../modals/useModal.jsx'
 import axios from 'axios';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
-
-  const {isShowing, toggle} = ModalViewer();
-
   const [ exampleData, setExampleData ] = useState(feedExampleData);
   const [ youtubeVideos, setYoutubeVideos ] = useState([]);
+  const [ showModal, setShowModal ] = useState(false);
 
   const history = useHistory();
 
@@ -41,7 +39,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
     signIn()
     setIsGoogleSignedIn(true);
 
-    if( localStorage.access_token) {
+    if(localStorage.access_token) {
       axios.get(`/getYoutube/${localStorage.access_token}`)
         .then(data => {
           setYoutubeVideos(data);
@@ -53,23 +51,16 @@ var Feed = ({ setIsGoogleSignedIn }) => {
     }
   }, [])
 
-
-
-
   return (
     <div>
-
       <div className='header'>
         <div>
           <h1 >Feedsense</h1>
         </div>
         <div className='navButtonContainer'>
           <Link to='/Analytics/Analytics/dashboard'>Analytics</Link>
-          <button onClick={toggle}>Post a Video</button>
-          <Modal
-            isShowing={isShowing}
-            hide={toggle}
-          />
+          <button onClick={()=>{setShowModal(!showModal)}}>Post a Video</button>
+          {showModal ? ReactDOM.createPortal(<Modal show={setShowModal}/>, document.body) : null}
           <a className='logout-btn' onClick={() => {
             setIsGoogleSignedIn(false);
             const auth2 = window.gapi.auth2.getAuthInstance()
@@ -84,8 +75,6 @@ var Feed = ({ setIsGoogleSignedIn }) => {
           }>logout</a>
         </div>
       </div>
-
-
       <div>
         {exampleData.map((post, index) => {
           if (post['platform'] === 'youtube') {
