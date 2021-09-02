@@ -9,9 +9,16 @@ import '../../feedStyle.css';
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
+<<<<<<< HEAD
+=======
+import Modal from '../modals/Modal.jsx';
+import ModalViewer from '../modals/useModal.jsx'
+>>>>>>> e94fb4532e3b4fabbed4f776bcf25380263dd151
 import axios from 'axios';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
+
+  const {isShowing, toggle} = ModalViewer();
 
   const [ exampleData, setExampleData ] = useState(feedExampleData);
   const [ youtubeVideos, setYoutubeVideos ] = useState([]);
@@ -41,6 +48,10 @@ var Feed = ({ setIsGoogleSignedIn }) => {
       axios.get(`/getYoutube/${localStorage.access_token}`)
         .then(data => {
           setYoutubeVideos(data);
+<<<<<<< HEAD
+=======
+          console.log(data.data)
+>>>>>>> e94fb4532e3b4fabbed4f776bcf25380263dd151
         })
         .catch( err => {
           console.error('ERROR RETRIEVING DATA: ', err.stack);
@@ -59,8 +70,12 @@ var Feed = ({ setIsGoogleSignedIn }) => {
           <h1 >Feedsense</h1>
         </div>
         <div className='navButtonContainer'>
-          <Link to='/Analytics/Analytics'>Analytics</Link>
-          <a>Post</a>
+          <Link to='/Analytics/Analytics/dashboard'>Analytics</Link>
+          <button onClick={toggle}>Post a Video</button>
+          <Modal
+            isShowing={isShowing}
+            hide={toggle}
+          />
           <a className='logout-btn' onClick={() => {
             setIsGoogleSignedIn(false);
             const auth2 = window.gapi.auth2.getAuthInstance()

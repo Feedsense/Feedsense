@@ -10,6 +10,11 @@ router.put('/authAddTwitter/:id/:tid', OauthCtrl.updateTwitter);
 router.put('/authAddYoutube/:id/:yid', OauthCtrl.updateYoutube);
 
 router.get('/getYoutube/:access_token', youtubeCtrl.getFeed);
+<<<<<<< HEAD
+=======
+router.get('/getYoutubeAnalytics/:access_token/:current_date', youtubeCtrl.getAnalytics);
+router.get('/getYoutubeChannelAnalytics/:access_token/:current_date', youtubeCtrl.getChannelAnalytics);
+>>>>>>> e94fb4532e3b4fabbed4f776bcf25380263dd151
 
 
 module.exports = router;
