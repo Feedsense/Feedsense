@@ -9,9 +9,13 @@ import '../../feedStyle.css';
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
+import Modal from '../modals/Modal.jsx';
+import ModalViewer from '../modals/useModal.jsx'
 import axios from 'axios';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
+
+  const {isShowing, toggle} = ModalViewer();
 
   const [ exampleData, setExampleData ] = useState(feedExampleData);
   const [ youtubeVideos, setYoutubeVideos ] = useState([]);
@@ -61,7 +65,11 @@ var Feed = ({ setIsGoogleSignedIn }) => {
         </div>
         <div className='navButtonContainer'>
           <Link to='/Analytics/Analytics'>Analytics</Link>
-          <a>Post</a>
+          <button onClick={toggle}>Post a Video</button>
+          <Modal
+            isShowing={isShowing}
+            hide={toggle}
+          />
           <a className='logout-btn' onClick={() => {
             setIsGoogleSignedIn(false);
             const auth2 = window.gapi.auth2.getAuthInstance()
