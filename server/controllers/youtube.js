@@ -42,9 +42,9 @@ module.exports = {
         ids: 'channel==MINE',
         endDate: currentDate,
         metrics: 'estimatedMinutesWatched,averageViewPercentage,averageViewDuration,views,comments,likes,dislikes,shares,subscribersGained,subscribersLost',
-        startDate: '2018-01-01',
+        startDate: '2006-01-01',
         dimensions: 'video',
-        maxResults: '100',
+        maxResults: '200',
         sort: '-views'
       }
     })
@@ -70,7 +70,7 @@ module.exports = {
         ids: 'channel==MINE',
         endDate: currentDate,
         metrics: 'estimatedMinutesWatched,averageViewPercentage,averageViewDuration,views,comments,likes,dislikes,shares,subscribersGained,subscribersLost',
-        startDate: '2007-01-01',
+        startDate: '2006-01-01',
         dimensions: 'video',
         maxResults: '100',
         sort: '-views'
@@ -107,6 +107,69 @@ module.exports = {
         averages: totalAverages,
         columns: columns
       })
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+  },
+
+  getChannelTotals: (req, res) => {
+    let url = `https://youtubeanalytics.googleapis.com/v2/reports`;
+    let urlStatistics = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&mine=true';
+    let token = req.params.access_token;
+    let currentDate = req.params.current_date;
+
+    axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      params: {
+        ids: 'channel==MINE',
+        endDate: currentDate,
+        metrics: 'estimatedMinutesWatched,views,comments,likes,dislikes,shares,subscribersGained,subscribersLost',
+        startDate: '2006-01-01',
+        dimensions: 'video',
+        maxResults: '200',
+        sort: '-views'
+      }
+    })
+    .then((response) => {
+      let resObj = {};
+      let columns = response.data.columnHeaders.map((column) => {
+        return column.name
+      });
+      let rows = response.data.rows;
+      for (let i = 0; i < rows.length; i++) {
+        let currentRow = rows[i];
+        for(let j = 0; j < currentRow.length; j++) {
+          if (!resObj[columns[j]]) {
+            resObj[columns[j]] = 0;
+            resObj[columns[j]] += currentRow[j];
+          } else {
+            resObj[columns[j]] += currentRow[j];
+          }
+        }
+      }
+      delete resObj['video']
+      delete resObj['views']
+      return resObj;
+    })
+    .then((resObj) => {
+      axios.get(urlStatistics, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then((response) => {
+        res.status(200).send({
+          totalVideoMetrics: resObj,
+          channelStatistics: response.data.items[0].statistics
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+
     })
     .catch((err) => {
       console.error(err);
