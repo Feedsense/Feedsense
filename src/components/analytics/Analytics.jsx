@@ -18,6 +18,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
 
   const [youtubeAnalyticsData, setYoutubeAnalyticsData] = useState([]);
   const [youtubeChannelAnalyticsData, setYoutubeChannelAnalyticsData] = useState([]);
+  const [youtubeChannelTotals, setYoutubeChannelTotals] = useState({});
 
   const history = useHistory();
 
@@ -70,6 +71,15 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
         .then((response) => {
           console.log('getYoutubeChannelAnalytics', response.data)
           setYoutubeChannelAnalyticsData(response.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+
+        axios.get(`/getYoutubeChannelTotals/${localStorage.access_token}/${todayDate}`)
+        .then((response) => {
+          console.log(response)
+          setYoutubeChannelTotals(response.data);
         })
         .catch((err) => {
           console.error(err);
