@@ -12,8 +12,15 @@ const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
           </button>
         </div>
         <p>
-          Hello, I'm a modal.
+          Post to your Social Media!
         </p>
+        <form>
+          <label>
+            Status:
+            <input type="text" name="name" />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     </div>
   </React.Fragment>, document.body

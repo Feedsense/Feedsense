@@ -1,14 +1,24 @@
 import React from 'react';
-import FollowersChart from './FollowersChart.jsx';
 import TotalFollowers from './TotalFollowers.jsx';
-import GrowthGraph from './GrowthGraph.jsx';
+import FollowersChart from './FollowersChart.jsx';
+import TotalViews from './TotalViews.jsx';
+import ViewsChart from './ViewsChart.jsx';
+import EngagementRate from './EngagementRate.jsx';
+import TotalTweets from './TotalTweets.jsx';
+import TotalVideos from './TotalVideos.jsx';
+import '../../../style.css';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+
   return (
     <div className="dashboard-main">
       <TotalFollowers />
       <FollowersChart />
-      <GrowthGraph />
+      <TotalViews />
+      <ViewsChart />
+      <EngagementRate />
+      <TotalTweets />
+      <TotalVideos />
     </div>
   )
 }

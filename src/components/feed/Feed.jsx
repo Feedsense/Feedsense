@@ -81,24 +81,25 @@ var Feed = ({ setIsGoogleSignedIn }) => {
         <div>
           <h1>Feedsense</h1>
         </div>
-        <div className="navButtonContainer">
-          <Link to="/Analytics/Analytics">Analytics</Link>
-          <button onClick={toggle}>Post to Social Media</button>
-          <Modal isShowing={isShowing} hide={toggle} />
-          <a
-            className="logout-btn"
-            onClick={() => {
-              setIsGoogleSignedIn(false);
-              const auth2 = window.gapi.auth2.getAuthInstance();
-              if (auth2 != null) {
-                auth2.signOut().then(auth2.disconnect());
-              }
-              localStorage.clear();
-              logout();
-            }}
-          >
-            logout
-          </a>
+        <div className='navButtonContainer'>
+          <Link to='/Analytics/Analytics/dashboard'>Analytics</Link>
+          <button onClick={toggle}>Post a Video</button>
+          <Modal
+            isShowing={isShowing}
+            hide={toggle}
+          />
+          <a className='logout-btn' onClick={() => {
+            setIsGoogleSignedIn(false);
+            const auth2 = window.gapi.auth2.getAuthInstance()
+            if (auth2 != null) {
+              auth2.signOut().then(
+                auth2.disconnect()
+              )
+            }
+            localStorage.clear();
+            logout();
+          }
+          }>logout</a>
         </div>
       </div>
 
