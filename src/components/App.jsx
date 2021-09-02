@@ -30,7 +30,6 @@ var App = () => {
               setIsGoogleSignedIn: setIsGoogleSignedIn
             }}/>
           <ProtectedRoute
-            exact
             path="/Analytics/Analytics"
             component={Analytics}
             data={{
