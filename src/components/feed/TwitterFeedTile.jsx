@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment';
 
 
 var TwitterFeedTile = (props) => {
 
   return (
-    <div className="post-tile">
-      <img src="" className="post-img"></img>
-      <div className="timestamp">{props.postData.createdAt}</div>
-      <div className="twitter-author">{props.postData.author}</div>
+    <div className="TW-post-tile">
+      <i className="TW-icon fab fa-twitter"></i>
+      <div className="timestamp">{moment(props.postData.createdAt).startOf('hour').fromNow()}</div>
+      <div className="twitter-author"><b>@{props.postData.author}</b></div>
+      <br></br>
       <div className="twitter-body">{props.postData.body}</div>
       <div className="twitter-media">{props.postData.media}</div>
     </div>

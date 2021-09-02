@@ -10,14 +10,14 @@ app.jsx
   background-color: #F3F2F3;
 }
 
+.logout-btn {
+  cursor: pointer;
+}
+
 /*
 Feed.jsx
 */
 
-.logo {
-  margin: 2%, 2%, 2%, 5%;
-  max-width: 30%;
-}
 
 .header {
   width: 100%;
@@ -28,7 +28,6 @@ Feed.jsx
 
 .navButtonContainer {
   float: right;
-
 }
 
 /*
@@ -37,17 +36,41 @@ Analytics - Start
 
 .analytics-head {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: stretch;
   height: 100%;
 }
 
 .dashboard-main {
-  flex-grow: 3;
+  margin-left: 30px;
 }
 
 .sidebar-main {
   display: flex;
+  flex-direction: column;
+  padding: 40px;
+  background-color: #2193CC;
+}
+
+.inline-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.outline {
+  border: 3px solid black;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.split {
+  justify-content: space-around;
+}
+
+.equalVertical {
+  align-items: center;
+  margin: 0 5px;
 }
 
 /*
