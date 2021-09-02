@@ -32,6 +32,8 @@ module.exports = {
   getAnalytics: (req, res) => {
     let url = `https://youtubeanalytics.googleapis.com/v2/reports`;
     let token = req.params.access_token;
+    let currentDate = req.params.current_date;
+    console.log(currentDate)
 
     axios.get(url, {
       headers: {
@@ -39,7 +41,7 @@ module.exports = {
       },
       params: {
         ids: 'channel==MINE',
-        endDate: '2021-01-01',
+        endDate: currentDate,
         metrics: 'estimatedMinutesWatched,averageViewPercentage,averageViewDuration,views,comments,likes,dislikes,shares,subscribersGained,subscribersLost',
         startDate: '2018-01-01',
         dimensions: 'video',
@@ -59,6 +61,7 @@ module.exports = {
   getChannelAnalytics: (req, res) => {
     let url = `https://youtubeanalytics.googleapis.com/v2/reports`;
     let token = req.params.access_token;
+    let currentDate = req.params.current_date
 
     axios.get(url, {
       headers: {
@@ -66,9 +69,9 @@ module.exports = {
       },
       params: {
         ids: 'channel==MINE',
-        endDate: '2021-01-01',
+        endDate: currentDate,
         metrics: 'estimatedMinutesWatched,averageViewPercentage,averageViewDuration,views,comments,likes,dislikes,shares,subscribersGained,subscribersLost',
-        startDate: '2018-01-01',
+        startDate: '2007-01-01',
         dimensions: 'video',
         maxResults: '100',
         sort: '-views'

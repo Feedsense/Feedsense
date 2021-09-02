@@ -36,7 +36,10 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
     signIn()
 
     if (localStorage.access_token) {
-      axios.get(`/getYoutubeAnalytics/${localStorage.access_token}`)
+
+      let todayDate = new Date().toISOString().slice(0, 10);
+
+      axios.get(`/getYoutubeAnalytics/${localStorage.access_token}/${todayDate}`)
         .then((response) => {
           console.log(response)
           setYoutubeAnalyticsData(response.data);
@@ -45,7 +48,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
           console.error(err);
         })
 
-        axios.get(`/getYoutubeChannelAnalytics/${localStorage.access_token}`)
+        axios.get(`/getYoutubeChannelAnalytics/${localStorage.access_token}/${todayDate}`)
         .then((response) => {
           console.log(response)
           setYoutubeChannelAnalyticsData(response.data);
