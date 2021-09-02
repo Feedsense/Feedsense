@@ -2,14 +2,16 @@ import React, { useState, useEffect, createContext } from 'react';
 import ProtectedRoute from '../ProtectedRoute.jsx';
 import config from '../../../env/config.js';
 import Auth from '../Auth.js';
-import { useHistory } from 'react-router-dom';
-import { useGoogleLogin } from 'react-google-login';
+// import { useHistory } from 'react-router-dom';
+// import { useGoogleLogin } from 'react-google-login';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
 import TwitterDashboard from './TwitterDashboard/TwitterDashboard.jsx';
 import YoutubeDashboard from './YouTubeDashboard/YoutubeDashboard.jsx';
 import axios from 'axios';
+
+import Header from '../Header.jsx'
 
 export const TwitterContext = React.createContext();
 export const YouTubeContext = React.createContext();
@@ -20,22 +22,22 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
   const [youtubeChannelAnalyticsData, setYoutubeChannelAnalyticsData] = useState([]);
   const [youtubeChannelTotals, setYoutubeChannelTotals] = useState({});
 
-  const history = useHistory();
+  // const history = useHistory();
 
-  const {signIn} = useGoogleLogin({
-    onSuccess: (res) => {
-      console.log(res)
-    },
-    clientId: config.clientId,
-    isSignedIn: true,
-    onFailure: (err) => console.log(err),
-  });
+  // const {signIn} = useGoogleLogin({
+  //   onSuccess: (res) => {
+  //     console.log(res)
+  //   },
+  //   clientId: config.clientId,
+  //   isSignedIn: true,
+  //   onFailure: (err) => console.log(err),
+  // });
 
-  var logout = () => {
-    Auth.logout(() => {
-      history.push('/');
-    })
-  };
+  // var logout = () => {
+  //   Auth.logout(() => {
+  //     history.push('/');
+  //   })
+  // };
 
   const [fakeTwitterData, SetFakeTwitterData] = useState({
     followers: 35910,
@@ -43,7 +45,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
     engagementRate: 0.035,
     totalTweets: 1286
   });
-  
+
   const [fakeYoutubeData, SetFakeYoutubeData] = useState({
     subscribers: 192412,
     totalViews: 3902172,
@@ -52,7 +54,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
   });
 
   useEffect(() => {
-    signIn()
+    // signIn()
 
     if (localStorage.access_token) {
 
@@ -90,7 +92,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
   return (
     <React.Fragment>
 
-      <a className='logout-btn' onClick={() => {
+      {/* <a className='logout-btn' onClick={() => {
         setIsGoogleSignedIn(false);
         const auth2 = window.gapi.auth2.getAuthInstance()
         if (auth2 != null) {
@@ -100,7 +102,8 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
             .then(logout())
         }
       }
-      }>logout</a>
+      }>logout</a> */}
+      <Header setIsGoogleSignedIn={setIsGoogleSignedIn} />
 
       <div className="analytics-head">
         <YouTubeContext.Provider value={fakeYoutubeData} >
