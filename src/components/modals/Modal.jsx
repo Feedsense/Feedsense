@@ -6,12 +6,6 @@ const config = {
   headers: {
     'Content-Type': 'multipart/form-data'
   }
-  // onUploadProgress: (progressEvent) => {
-  //   var percentCompleted = Math.round(
-  //     (progressEvent.loaded * 100) / progressEvent.total
-  //   );
-  //   console.log(percentCompleted);
-  // }
 };
 
 // Creating the modal that will be displayed

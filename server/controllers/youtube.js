@@ -114,21 +114,6 @@ module.exports = {
   },
 
   postVideo: (req, res) => {
-    // console.log(req.file); These two lines only work with Multer acting as parser
-    // console.log(req.body); ^^^^^
-
-    // const frstream = fs.createReadStream(req.file);
-    // const fwstream = fs.createWriteStream(path.join(__dirname, '../../public/videos/temp'));
-    // pipeline(frstream, fwstream, (err) => {
-    //   if (err) {
-    //     console.error('Pipeline failed ', err);
-    //     return err;
-    //   }
-    //   console.log('Pipeline succeeded!');
-    //   res.send();
-    // });
-    console.log(req.headers['content-type'])
-    //console.log(req.body);
     req.pipe(req.busboy);
 
     req.busboy.on('file', (fieldname, file, filename) => {
