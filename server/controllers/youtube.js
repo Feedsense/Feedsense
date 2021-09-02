@@ -33,7 +33,6 @@ module.exports = {
     let url = `https://youtubeanalytics.googleapis.com/v2/reports`;
     let token = req.params.access_token;
     let currentDate = req.params.current_date;
-    console.log(currentDate)
 
     axios.get(url, {
       headers: {
