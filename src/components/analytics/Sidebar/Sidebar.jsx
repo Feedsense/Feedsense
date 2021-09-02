@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
     <div className="sidebar-main">
-      <button>Update</button>
-      <h3>Twitter</h3>
-      <h3>YouTube</h3>
+      <Link to="/Analytics/Analytics/dashboard" >Overview</Link>
+      <Link to="/Analytics/Analytics/twitter" >Twitter</Link>
+      <Link to="/Analytics/Analytics/youtube" >YouTube</Link>
     </div>
   )
 }

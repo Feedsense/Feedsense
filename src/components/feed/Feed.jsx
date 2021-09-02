@@ -64,7 +64,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
           <h1 >Feedsense</h1>
         </div>
         <div className='navButtonContainer'>
-          <Link to='/Analytics/Analytics'>Analytics</Link>
+          <Link to='/Analytics/Analytics/dashboard'>Analytics</Link>
           <button onClick={toggle}>Post a Video</button>
           <Modal
             isShowing={isShowing}
