@@ -9,11 +9,15 @@ import Dashboard from './Dashboard/Dashboard.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
 import TwitterDashboard from './TwitterDashboard/TwitterDashboard.jsx';
 import YoutubeDashboard from './YouTubeDashboard/YoutubeDashboard.jsx';
+import axios from 'axios';
 
 export const TwitterContext = React.createContext();
 export const YouTubeContext = React.createContext();
 
 const Analytics = ({ setIsGoogleSignedIn }) => {
+
+  const [youtubeAnalyticsData, setYoutubeAnalyticsData] = useState([]);
+  const [youtubeChannelAnalyticsData, setYoutubeChannelAnalyticsData] = useState([]);
 
   const history = useHistory();
 
@@ -38,13 +42,40 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
     engagementRate: 0.035,
     totalTweets: 1286
   });
-
+  
   const [fakeYoutubeData, SetFakeYoutubeData] = useState({
     subscribers: 192412,
     totalViews: 3902172,
     engagementRate: 0.013,
     totalVideos: 326
   });
+
+  useEffect(() => {
+    signIn()
+
+    if (localStorage.access_token) {
+
+      let todayDate = new Date().toISOString().slice(0, 10);
+
+      axios.get(`/getYoutubeAnalytics/${localStorage.access_token}/${todayDate}`)
+        .then((response) => {
+          console.log(response)
+          setYoutubeAnalyticsData(response.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+
+        axios.get(`/getYoutubeChannelAnalytics/${localStorage.access_token}/${todayDate}`)
+        .then((response) => {
+          console.log(response)
+          setYoutubeChannelAnalyticsData(response.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+    }
+  }, [])
 
   return (
     <React.Fragment>

@@ -5,13 +5,20 @@ import {Switch, Link} from 'react-router-dom';
 import feedExampleData from './feed-example-data.js';
 import TwitterFeedTile from './TwitterFeedTile.jsx';
 import YouTubeFeedTile from './YouTubeFeedTile.jsx';
+import '../../feedStyle.css';
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
+import Modal from '../modals/Modal.jsx';
+import ModalViewer from '../modals/useModal.jsx'
+import axios from 'axios';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
 
+  const {isShowing, toggle} = ModalViewer();
+
   const [ exampleData, setExampleData ] = useState(feedExampleData);
+  const [ youtubeVideos, setYoutubeVideos ] = useState([]);
 
   const history = useHistory();
 
@@ -33,7 +40,21 @@ var Feed = ({ setIsGoogleSignedIn }) => {
   useEffect(() => {
     signIn()
     setIsGoogleSignedIn(true);
+
+    if( localStorage.access_token) {
+      axios.get(`/getYoutube/${localStorage.access_token}`)
+        .then(data => {
+          setYoutubeVideos(data);
+          console.log(data.data)
+        })
+        .catch( err => {
+          console.error('ERROR RETRIEVING DATA: ', err.stack);
+        });
+    }
   }, [])
+
+
+
 
   return (
     <div>
@@ -44,7 +65,11 @@ var Feed = ({ setIsGoogleSignedIn }) => {
         </div>
         <div className='navButtonContainer'>
           <Link to='/Analytics/Analytics/dashboard'>Analytics</Link>
-          <a>Post</a>
+          <button onClick={toggle}>Post a Video</button>
+          <Modal
+            isShowing={isShowing}
+            hide={toggle}
+          />
           <a className='logout-btn' onClick={() => {
             setIsGoogleSignedIn(false);
             const auth2 = window.gapi.auth2.getAuthInstance()
@@ -62,18 +87,17 @@ var Feed = ({ setIsGoogleSignedIn }) => {
 
 
       <div>
-        {console.log(exampleData)}
         {exampleData.map((post, index) => {
-          if (post.platform === 'youtube') {
-            <YouTubeFeedTile postData={post}/>
+          if (post['platform'] === 'youtube') {
+            return <YouTubeFeedTile key={index} postData={post}/>
           }
-          if (post.platform === 'twitter') {
-            <TwitterFeedTile postData={post}/>
+          if (post['platform'] === 'twitter') {
+            return <TwitterFeedTile key={index} postData={post}/>
           }
         })}
       </div>
     </div>
-  )
+  );
 }
 
 export default Feed;
