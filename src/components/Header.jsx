@@ -10,7 +10,6 @@ import '../header.css'
 
 
 var Header = ({ setIsGoogleSignedIn }) => {
-
   const {isShowing, toggle} = ModalViewer();
 
   const history = useHistory();
@@ -33,12 +32,10 @@ var Header = ({ setIsGoogleSignedIn }) => {
   useEffect(() => {
     signIn()
     setIsGoogleSignedIn(true);
-
   }, [])
 
   return (
     <div>
-
       <div className='headercontainer'>
         <div className='headerTitle'>
           <h1 >Feedsense</h1>
