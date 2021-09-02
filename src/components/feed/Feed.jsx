@@ -9,11 +9,8 @@ import '../../feedStyle.css';
 import { useHistory } from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import '../../style.css';
-<<<<<<< HEAD
-=======
 import Modal from '../modals/Modal.jsx';
 import ModalViewer from '../modals/useModal.jsx'
->>>>>>> e94fb4532e3b4fabbed4f776bcf25380263dd151
 import axios from 'axios';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
@@ -48,10 +45,6 @@ var Feed = ({ setIsGoogleSignedIn }) => {
       axios.get(`/getYoutube/${localStorage.access_token}`)
         .then(data => {
           setYoutubeVideos(data);
-<<<<<<< HEAD
-=======
-          console.log(data.data)
->>>>>>> e94fb4532e3b4fabbed4f776bcf25380263dd151
         })
         .catch( err => {
           console.error('ERROR RETRIEVING DATA: ', err.stack);

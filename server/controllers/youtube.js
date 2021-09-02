@@ -15,10 +15,7 @@ module.exports = {
 
 
   getFeed: (req, res) => {
-<<<<<<< HEAD
-=======
     let count = req.params.count ? '100' : req.params.count
->>>>>>> e94fb4532e3b4fabbed4f776bcf25380263dd151
     let url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=${config.youtubeAPI} HTTP/1.1&maxResults=100`;
     let token = req.params.access_token;
 
@@ -30,8 +27,6 @@ module.exports = {
       .catch( err => {
         console.error('ERROR RETRIEVING DATA: ', err.stack);
       });
-<<<<<<< HEAD
-=======
   },
 
   getAnalytics: (req, res) => {
@@ -116,6 +111,5 @@ module.exports = {
     .catch((err) => {
       console.error(err);
     })
->>>>>>> e94fb4532e3b4fabbed4f776bcf25380263dd151
   }
 }
