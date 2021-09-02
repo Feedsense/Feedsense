@@ -43,7 +43,6 @@ var Feed = ({ setIsGoogleSignedIn }) => {
       axios.get(`/getYoutube/${localStorage.access_token}`)
         .then(data => {
           setYoutubeVideos(data);
-          console.log(data.data)
         })
         .catch( err => {
           console.error('ERROR RETRIEVING DATA: ', err.stack);
