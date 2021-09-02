@@ -19,7 +19,7 @@ module.exports = {
     let token = req.params.access_token;
 
 
-    axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=${config.youtubeAPI} HTTP/1.1&maxResults=30`, {headers: { Authorization: `Bearer ${token}` }})
+    axios.get(url, {headers: { Authorization: `Bearer ${token}` }})
       .then(data => {
         res.status(200).send(data.data.items);
       })
