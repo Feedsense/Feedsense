@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 * {
   font-family: 'Montserrat', sans-serif;
 }
@@ -48,8 +52,8 @@ Analytics - Start
 .sidebar-main {
   display: flex;
   flex-direction: column;
-  padding: 40px;
-  background-color: #2193CC;
+  background-color: #F3F2F3;
+  text-decoration: none;
 }
 
 .inline-row {
@@ -71,6 +75,24 @@ Analytics - Start
 .equalVertical {
   align-items: center;
   margin: 0 5px;
+}
+
+.dashBoardOption {
+  text-decoration: none;
+  color: #6C6B6C;
+}
+
+.dashBoardOption:hover {
+ color: #379FFF;
+}
+
+.currentOption {
+  background-color: #379FFF;
+  color: #FFFEFF;
+}
+
+.currentOption:hover {
+  color: #FFFEFF;
 }
 
 /*

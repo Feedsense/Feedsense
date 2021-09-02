@@ -59,7 +59,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
 
       axios.get(`/getYoutubeAnalytics/${localStorage.access_token}/${todayDate}`)
         .then((response) => {
-          console.log(response)
+          console.log('getYoutubeAnalytics', response.data)
           setYoutubeAnalyticsData(response.data);
         })
         .catch((err) => {
@@ -68,7 +68,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
 
         axios.get(`/getYoutubeChannelAnalytics/${localStorage.access_token}/${todayDate}`)
         .then((response) => {
-          console.log(response)
+          console.log('getYoutubeChannelAnalytics', response.data)
           setYoutubeChannelAnalyticsData(response.data);
         })
         .catch((err) => {
@@ -100,7 +100,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
             <Switch>
               <ProtectedRoute exact path="/Analytics/Analytics/dashboard" component={Dashboard}/>
               <ProtectedRoute exact path="/Analytics/Analytics/twitter" component={TwitterDashboard}/>
-              <ProtectedRoute exact path="/Analytics/Analytics/youtube" component={YoutubeDashboard}/>
+              <ProtectedRoute exact path="/Analytics/Analytics/youtube" component={YoutubeDashboard} />
             </Switch>
           </Router>
         </TwitterContext.Provider>
