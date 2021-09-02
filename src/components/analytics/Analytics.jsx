@@ -16,10 +16,6 @@ export const YouTubeContext = React.createContext();
 
 const Analytics = ({ setIsGoogleSignedIn }) => {
 
-  const [youtubeAnalyticsData, setYoutubeAnalyticsData] = useState([]);
-  const [youtubeChannelAnalyticsData, setYoutubeChannelAnalyticsData] = useState([]);
-  const [youtubeChannelTotals, setYoutubeChannelTotals] = useState({});
-
   const history = useHistory();
 
   const {signIn} = useGoogleLogin({
@@ -43,13 +39,31 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
     engagementRate: 0.035,
     totalTweets: 1286
   });
-
   const [fakeYoutubeData, SetFakeYoutubeData] = useState({
     subscribers: 192412,
     totalViews: 3902172,
     engagementRate: 0.013,
     totalVideos: 326
   });
+
+
+
+
+
+
+
+
+
+  const [youtubeData, SetYoutubeData] = useState({})
+
+  const [youtubeDataReady, SetYoutubeDataReady] = useState(false)
+
+  var tempData = {
+    analyticsData: '',
+    channelAnalytics: '',
+    channelTotals: ''
+  }
+  var dataSetsReceived = 0;
 
   useEffect(() => {
     signIn()
@@ -58,34 +72,46 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
 
       let todayDate = new Date().toISOString().slice(0, 10);
 
-      axios.get(`/getYoutubeAnalytics/${localStorage.access_token}/${todayDate}`)
+      const promise1 = axios.get(`/getYoutubeAnalytics/${localStorage.access_token}/${todayDate}`)
         .then((response) => {
-          console.log('getYoutubeAnalytics', response.data)
-          setYoutubeAnalyticsData(response.data);
+          tempData.analyticsData = response.data;
+          dataSetsReceived ++;
         })
         .catch((err) => {
           console.error(err);
         })
 
-        axios.get(`/getYoutubeChannelAnalytics/${localStorage.access_token}/${todayDate}`)
-        .then((response) => {
-          console.log('getYoutubeChannelAnalytics', response.data)
-          setYoutubeChannelAnalyticsData(response.data);
-        })
-        .catch((err) => {
-          console.error(err);
-        })
+      const promise2 = axios.get(`/getYoutubeChannelAnalytics/${localStorage.access_token}/${todayDate}`)
+      .then((response) => {
+        tempData.channelAnalytics = response.data;
+        dataSetsReceived ++;
+      })
+      .catch((err) => {
+        console.error(err);
+      })
 
-        axios.get(`/getYoutubeChannelTotals/${localStorage.access_token}/${todayDate}`)
-        .then((response) => {
-          console.log(response)
-          setYoutubeChannelTotals(response.data);
-        })
-        .catch((err) => {
-          console.error(err);
-        })
+      const promise3 = axios.get(`/getYoutubeChannelTotals/${localStorage.access_token}/${todayDate}`)
+      .then((response) => {
+        tempData.channelTotals = response.data;
+        dataSetsReceived ++;
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+
+      Promise.all([promise1, promise2, promise3])
+      .then(() => {
+        return SetYoutubeData(tempData)
+      })
+      .then(() => renderNow())
+
     }
   }, [])
+
+  const renderNow = () => {
+    console.log('setting render to true')
+    SetYoutubeDataReady(true)
+  }
 
   return (
     <React.Fragment>
@@ -103,7 +129,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
       }>logout</a>
 
       <div className="analytics-head">
-        <YouTubeContext.Provider value={fakeYoutubeData} >
+        {youtubeDataReady && <YouTubeContext.Provider value={youtubeData} >
         <TwitterContext.Provider value={fakeTwitterData} >
           <Router>
             <Sidebar />
@@ -114,7 +140,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
             </Switch>
           </Router>
         </TwitterContext.Provider>
-        </YouTubeContext.Provider>
+        </YouTubeContext.Provider>}
       </div>
 
     </React.Fragment>

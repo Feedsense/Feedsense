@@ -9,7 +9,7 @@ const FollowersChart = () => {
   const youtubeData = useContext(YouTubeContext);
 
   var followersChart = {
-    series: [twitterData.followers, youtubeData.subscribers],
+    series: [twitterData.followers, Number(youtubeData.channelTotals.channelStatistics.subscriberCount)],
     chartOptions: {
       labels: ['Twitter', 'YouTube']
     }

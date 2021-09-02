@@ -52,8 +52,10 @@ Analytics - Start
 .sidebar-main {
   display: flex;
   flex-direction: column;
-  background-color: #F3F2F3;
+  background-color: #fcfcfc;
   text-decoration: none;
+  padding: 5% 2% 0 2%;
+  box-shadow: rgba(149, 157, 165, .3) 0px 8px 24px;
 }
 
 .inline-row {
@@ -63,7 +65,7 @@ Analytics - Start
 
 .outline {
   border: 3px solid black;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 5px;
   padding: 5px;
 }
@@ -80,6 +82,10 @@ Analytics - Start
 .dashBoardOption {
   text-decoration: none;
   color: #6C6B6C;
+  padding: 7px 40px 7px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .dashBoardOption:hover {
