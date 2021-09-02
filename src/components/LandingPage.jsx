@@ -48,10 +48,10 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
 
   return (
     <div className='landing-page'>
-      <div className='header'></div>
+      {/* <div className='header'></div> */}
       <div className='body'>
-        <div>
-          <img src="Feedsense.JPG" className='logo'></img>
+        <div className='logohold'>
+          <img src="Feedsenser.png" className='logo'></img>
         </div>
         <div className='center'>
           <div className='wordsBig'>Feedsense</div>
@@ -79,7 +79,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
           Please login with google
         </div>
       </div>
-      <div className='footer'></div>
+      {/* <div className='footer'></div> */}
     </div>
   )
 };
