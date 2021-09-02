@@ -13,7 +13,7 @@ const FollowersChart = () => {
     chartOptions: {
       labels: ['Twitter', 'YouTube']
     }
-  }
+  };
 
   return (
     <div className="outline">

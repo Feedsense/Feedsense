@@ -43,7 +43,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
           <h1 >Feedsense</h1>
         </div>
         <div className='navButtonContainer'>
-          <Link to='/Analytics/Analytics'>Analytics</Link>
+          <Link to='/Analytics/Analytics/dashboard'>Analytics</Link>
           <a>Post</a>
           <a className='logout-btn' onClick={() => {
             setIsGoogleSignedIn(false);

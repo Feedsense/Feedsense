@@ -13,7 +13,7 @@ const ViewsChart = () => {
     chartOptions: {
       labels: ['Twitter', 'YouTube']
     }
-  }
+  };
 
   return (
     <div className="outline">

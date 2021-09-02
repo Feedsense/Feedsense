@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {TwitterContext, YouTubeContext} from '../Analytics.jsx';
+import { TwitterContext, YouTubeContext } from '../Analytics.jsx';
 
 const TotalFollowers = () => {
 
