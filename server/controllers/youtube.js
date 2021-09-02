@@ -42,7 +42,7 @@ module.exports = {
         ids: 'channel==MINE',
         endDate: currentDate,
         metrics: 'estimatedMinutesWatched,averageViewPercentage,averageViewDuration,views,comments,likes,dislikes,shares,subscribersGained,subscribersLost',
-        startDate: '2018-01-01',
+        startDate: '2006-01-01',
         dimensions: 'video',
         maxResults: '200',
         sort: '-views'
@@ -70,7 +70,7 @@ module.exports = {
         ids: 'channel==MINE',
         endDate: currentDate,
         metrics: 'estimatedMinutesWatched,averageViewPercentage,averageViewDuration,views,comments,likes,dislikes,shares,subscribersGained,subscribersLost',
-        startDate: '2007-01-01',
+        startDate: '2006-01-01',
         dimensions: 'video',
         maxResults: '100',
         sort: '-views'
@@ -127,7 +127,7 @@ module.exports = {
         ids: 'channel==MINE',
         endDate: currentDate,
         metrics: 'estimatedMinutesWatched,views,comments,likes,dislikes,shares,subscribersGained,subscribersLost',
-        startDate: '2018-01-01',
+        startDate: '2006-01-01',
         dimensions: 'video',
         maxResults: '200',
         sort: '-views'
