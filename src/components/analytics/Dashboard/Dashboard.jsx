@@ -10,8 +10,6 @@ import '../../../style.css';
 
 const Dashboard = (props) => {
 
-  console.log('$$$$$$$$$$$$', props)
-
   return (
     <div className="dashboard-main">
       <TotalFollowers />

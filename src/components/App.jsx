@@ -30,29 +30,12 @@ var App = () => {
               setIsGoogleSignedIn: setIsGoogleSignedIn
             }}/>
           <ProtectedRoute
-            // exact
             path="/Analytics/Analytics"
             component={Analytics}
             data={{
               isGoogleSignedIn: isGoogleSignedIn,
               setIsGoogleSignedIn: setIsGoogleSignedIn
             }}/>
-          {/* <ProtectedRoute
-            exact
-            path="/Analytics/Analytics/dashboard"
-            component={Analytics}
-            data={{
-              isGoogleSignedIn: isGoogleSignedIn,
-              setIsGoogleSignedIn: setIsGoogleSignedIn
-            }}/> */}
-          {/* <ProtectedRoute
-            exact
-            path="/Analytics/Analytics/twitter"
-            component={Analytics}
-            data={{
-              isGoogleSignedIn: isGoogleSignedIn,
-              setIsGoogleSignedIn: setIsGoogleSignedIn
-            }}/> */}
           <Route to='*' component={() => ('404 not found')}/>
         </Switch>
       </Router>
