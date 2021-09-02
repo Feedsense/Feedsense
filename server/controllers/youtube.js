@@ -113,7 +113,7 @@ module.exports = {
     })
   },
 
-  getChannelTotals: (req, res) => {
+  getChannelTotalsAndVideos: (req, res) => {
     let url = `https://youtubeanalytics.googleapis.com/v2/reports`;
     let urlStatistics = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&mine=true';
     let token = req.params.access_token;
@@ -134,7 +134,9 @@ module.exports = {
       }
     })
     .then((response) => {
-      let resObj = {};
+      let resObj = {
+        videos: []
+      };
       let columns = response.data.columnHeaders.map((column) => {
         return column.name
       });
@@ -142,16 +144,18 @@ module.exports = {
       for (let i = 0; i < rows.length; i++) {
         let currentRow = rows[i];
         for(let j = 0; j < currentRow.length; j++) {
-          if (!resObj[columns[j]]) {
-            resObj[columns[j]] = 0;
-            resObj[columns[j]] += currentRow[j];
+          if (j === 0) {
+            resObj.videos.push(currentRow[j]);
           } else {
-            resObj[columns[j]] += currentRow[j];
+            if (!resObj[columns[j]]) {
+              resObj[columns[j]] = 0;
+              resObj[columns[j]] += currentRow[j];
+            } else {
+              resObj[columns[j]] += currentRow[j];
+            }
           }
         }
       }
-      delete resObj['video']
-      delete resObj['views']
       return resObj;
     })
     .then((resObj) => {
@@ -161,10 +165,38 @@ module.exports = {
         }
       })
       .then((response) => {
-        res.status(200).send({
+        let channelData = {
           totalVideoMetrics: resObj,
           channelStatistics: response.data.items[0].statistics
+        }
+
+        let videos = '';
+
+        channelData.totalVideoMetrics.videos.forEach((videoId) => {
+          videos += videoId + ','
         })
+        videos = videos.slice(0, videos.length - 1);
+
+        axios.get('https://www.googleapis.com/youtube/v3/videos', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+          params: {
+            part: 'contentDetails,topicDetails,statistics,snippet',
+            id: videos
+          }
+        })
+        .then((videoData) => {
+          res.status(200).send({
+            totalVideoMetrics: channelData.totalVideoMetrics,
+            channelStatistics: channelData.channelStatistics,
+            userVideos: videoData.data.items
+          })
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+
       })
       .catch((err) => {
         console.log(err);
