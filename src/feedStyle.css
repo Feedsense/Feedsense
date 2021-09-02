@@ -2,7 +2,7 @@
   background-color: lightgray;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 5px;
+  gap: 10px;
   grid-auto-rows: minmax(100px, auto);
   margin: 0 25% 2% 25%;
   padding: 2% 2%;
