@@ -1,0 +1,39 @@
+.headercontainer {
+  background: rgb(33,147,204);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  max-height: 120px;
+}
+
+.headerTitle {
+  color: white;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.navButtonContainer {
+  width: 36%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.navButton {
+  margin: 0;
+  width: 20%;
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: large;
+}
+
+
+.navButton:hover {
+  background-color: #555;
+}
+

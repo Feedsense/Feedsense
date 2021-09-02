@@ -6,6 +6,8 @@ import { useGoogleLogin } from 'react-google-login';
 import Modal from './modals/Modal.jsx';
 import ModalViewer from './modals/useModal.jsx'
 
+import '../header.css'
+
 
 var Header = ({ setIsGoogleSignedIn }) => {
 
@@ -37,19 +39,19 @@ var Header = ({ setIsGoogleSignedIn }) => {
   return (
     <div>
 
-      <div className='header'>
-        <div>
+      <div className='headercontainer'>
+        <div className='headerTitle'>
           <h1 >Feedsense</h1>
         </div>
         <div className='navButtonContainer'>
-          <Link to='/feed'>Feed</Link>
-          <Link to='/Analytics/Analytics/dashboard'>Analytics</Link>
-          <button onClick={toggle}>Post a Video</button>
+          <Link to='/feed' className='navButton'>Feed</Link>
+          <Link to='/Analytics/Analytics/dashboard' className='navButton'>Analytics</Link>
+          <div onClick={toggle} className='navButton'>Post</div>
           <Modal
             isShowing={isShowing}
             hide={toggle}
           />
-          <a className='logout-btn' onClick={() => {
+          <a className='navButton' onClick={() => {
             setIsGoogleSignedIn(false);
             const auth2 = window.gapi.auth2.getAuthInstance()
             if (auth2 != null) {
