@@ -21,7 +21,6 @@ module.exports = {
     let url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=${config.youtubeAPI} HTTP/1.1&maxResults=100`;
     let token = req.params.access_token;
 
-
     axios.get(url, {headers: { Authorization: `Bearer ${token}` }})
       .then(data => {
         res.status(200).send(data.data.items);
@@ -210,9 +209,22 @@ module.exports = {
   },
 
   postVideo: (req, res) => {
+    const youtube = google.youtube;
+    const clientID = config.clientId;
+    const clientSecret = config.OAuthData.clientSecret;
+    const clientURI = config.OAuthData.redirectURI;
+
     req.pipe(req.busboy);
 
+    // var formData = new Map();
+
+    // req.busboy.on('field', (fieldname, val) => {
+    //   formData.set(fieldname, val);
+    //   console.log(formData);
+    // })
+    // console.log('Moving on!');
     req.busboy.on('file', (fieldname, file, filename) => {
+      console.log(fieldname);
       console.log(`Upload of ${filename} started`);
 
       const fwstream = fs.createWriteStream(path.join(__dirname, `/../../public/videos/${filename}`));
@@ -223,4 +235,5 @@ module.exports = {
         res.send();
       });
     });
+  }
 }
