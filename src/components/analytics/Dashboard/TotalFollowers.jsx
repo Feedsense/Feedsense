@@ -8,7 +8,7 @@ const TotalFollowers = () => {
 
   return (
     <div className="outline">
-      <h3>Total Followers {twitterData.followers + youtubeData.subscribers}</h3>
+      <h3>Total Followers/Subscribers {twitterData.followers + Number(youtubeData.channelTotalsandVideos.channelStatistics.subscriberCount)}</h3>
     </div>
   )
 }
