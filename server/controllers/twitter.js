@@ -68,12 +68,17 @@ module.exports = {
       accessToken: req.cookies.oauthAccessToken,
       accessSecret: req.cookies.oauthAccessTokenSecret
     })
-    client.v1.homeTimeline()
-      .then(data => {
-        console.log(data.data);
-        res.send(data.data)})
+    client.v1.homeTimeline({'expansions': ['public_metrics']})
+    .then(data => {
 
+      for (const tweet of data) {
+        console.log(tweet)
+      }
+    })
   },
+  // .then(data => {
+  //   console.log(data.data);
+  //   res.send(data.data)})
   postTweet:(myStatus) => {
     const T = new Twit({
       appKey: keys.CONSUMER_KEY,
