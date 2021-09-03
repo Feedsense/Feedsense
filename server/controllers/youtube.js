@@ -1,6 +1,10 @@
 const youtubeModels = require('../../database/models/youtube');
 const config =  require( '../../env/config.js');
 const axios = require('axios');
+const path = require('path');
+const fs = require('fs');
+const busboy = require('connect-busboy');
+const {google} = require('googleapis');
 
 module.exports = {
   getData: (req, res) => {
@@ -8,7 +12,6 @@ module.exports = {
       if (err) {
         return console.error('ERROR RETRIEVING DATA: ', err.stack);
       }
-
       res.status(200).send();
     });
   },
@@ -52,7 +55,6 @@ module.exports = {
     .catch((err) => {
       console.error(err);
     })
-
   },
 
   getChannelAnalytics: (req, res) => {
@@ -204,5 +206,20 @@ module.exports = {
     .catch((err) => {
       console.error(err);
     })
-  }
+  },
+
+  postVideo: (req, res) => {
+    req.pipe(req.busboy);
+
+    req.busboy.on('file', (fieldname, file, filename) => {
+      console.log(`Upload of ${filename} started`);
+
+      const fwstream = fs.createWriteStream(path.join(__dirname, `/../../public/videos/${filename}`));
+      file.pipe(fwstream);
+
+      fwstream.on('close', () => {
+        console.log(`Upload of ${filename} complete`);
+        res.send();
+      });
+    });
 }

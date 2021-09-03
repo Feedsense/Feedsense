@@ -13,7 +13,6 @@ import '../../feedStyle.css';
 import '../../style.css';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
-
   const [ exampleData, setExampleData ] = useState(feedExampleData);
   const [ youtubeVideos, setYoutubeVideos ] = useState([]);
 
