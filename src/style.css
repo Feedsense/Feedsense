@@ -8,26 +8,7 @@ app.jsx
 
 .mainContainer {
   background-color: #F3F2F3;
-}
 
-.logout-btn {
-  cursor: pointer;
-}
-
-/*
-Feed.jsx
-*/
-
-
-.header {
-  width: 100%;
-  height: 93px;
-  background-color: #F5F5F5;
-  margin: .5%, .5%, .5%, .5%;
-}
-
-.navButtonContainer {
-  float: right;
 }
 
 /*
