@@ -73,19 +73,6 @@ const Modal = ({show}) => {
             <button>Send Post</button>
           </form>
         </div>
-<<<<<<< HEAD
-        <p>
-          Post to your Social Media!
-        </p>
-        <form>
-          <label>
-            Status:
-            <textarea type="text" name="name" />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-=======
->>>>>>> f97b01ffe145cfeb31f40e1efa228f9f7f881ccc
       </div>
     </React.Fragment>
   )

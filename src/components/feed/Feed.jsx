@@ -14,23 +14,21 @@ import '../../style.css';
 
 var Feed = ({ setIsGoogleSignedIn }) => {
   const [ exampleData, setExampleData ] = useState(feedExampleData);
-  const [ youtubeVideos, setYoutubeVideos ] = useState([]);
+  const [ socialMediaData, setSocialMediaData ] = useState([]);
 
   useEffect(() => {
     if( localStorage.access_token) {
       axios.get(`/getYoutube/${localStorage.access_token}`)
         .then(data => {
-          setYoutubeVideos(data);
+          setSocialMediaData(data.data);
         })
         .catch((err) => {
           console.error("ERROR RETRIEVING DATA: ", err.stack);
         });
     }
-<<<<<<< HEAD
   }, []);
 
   var sortedSocialmedia = [];
-
   if (socialMediaData.length > 0) {
     for (var i = 0; i < socialMediaData.length; i++) {
       if (sortedSocialmedia.length === 0) {
@@ -55,7 +53,6 @@ var Feed = ({ setIsGoogleSignedIn }) => {
 
   var sortedSocialmedia2D = [];
   var arr = [];
-
   for (var i = 0; i < sortedSocialmedia.length; i++) {
     if (arr.length === 5) {
       sortedSocialmedia2D.push(arr);
@@ -64,7 +61,6 @@ var Feed = ({ setIsGoogleSignedIn }) => {
       arr.push(sortedSocialmedia[i]);
     }
   }
-  console.log(sortedSocialmedia2D);
 
   return (
     <div>
