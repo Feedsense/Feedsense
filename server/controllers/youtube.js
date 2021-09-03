@@ -223,8 +223,10 @@ module.exports = {
     //   console.log(formData);
     // })
     // console.log('Moving on!');
+
+    req.pipe(req.busboy);
+
     req.busboy.on('file', (fieldname, file, filename) => {
-      console.log(fieldname);
       console.log(`Upload of ${filename} started`);
 
       const fwstream = fs.createWriteStream(path.join(__dirname, `/../../public/videos/${filename}`));

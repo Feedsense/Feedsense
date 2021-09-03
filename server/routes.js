@@ -14,6 +14,7 @@ router.get('/getYoutube/:access_token', youtubeCtrl.getFeed);
 router.get('/getYoutubeAnalytics/:access_token/:current_date', youtubeCtrl.getAnalytics);
 router.get('/getYoutubeChannelAnalytics/:access_token/:current_date', youtubeCtrl.getChannelAnalytics);
 router.get('/getYoutubeChannelTotalsAndVideos/:access_token/:current_date', youtubeCtrl.getChannelTotalsAndVideos)
+
 router.post('/uploadYoutube', youtubeCtrl.postVideo);
 
 module.exports = router;

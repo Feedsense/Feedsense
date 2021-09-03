@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+
 import config from '../../env/config.js';
 import Auth from './Auth.js';
 import {Switch, Link, useHistory} from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import Modal from './modals/Modal.jsx';
-
 import '../header.css'
 
 var Header = ({ setIsGoogleSignedIn }) => {
