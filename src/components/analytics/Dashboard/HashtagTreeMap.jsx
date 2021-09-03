@@ -11,13 +11,15 @@ const HashtagTreeMap = () => {
   const tagData = []
 
   youtubeData.channelTotalsandVideos.userVideos.map((video, index) => {
-    video.snippet.tags.map((tag, i) => {
-      if (!hashTags[tag]) {
-        hashTags[tag] = Number(video.statistics.viewCount)
-      } else {
-        hashTags[tag] += Number(video.statistics.viewCount)
-      }
-    })
+    if (video.snippet.tags !== undefined) {
+      video.snippet.tags.map((tag, i) => {
+        if (!hashTags[tag]) {
+          hashTags[tag] = Number(video.statistics.viewCount)
+        } else {
+          hashTags[tag] += Number(video.statistics.viewCount)
+        }
+      })
+    }
   })
 
   for (var tag in hashTags) {

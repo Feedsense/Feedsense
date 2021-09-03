@@ -8,8 +8,11 @@ const LikePercentage = () => {
 
 
   return (
-    <div className="outline">
-      <h3>Likes to Views Percentage {((youtubeData.channelTotalsandVideos.totalVideoMetrics.likes / youtubeData.channelTotalsandVideos.totalVideoMetrics.views) * 100).toFixed(0)}%</h3>
+    <div className="outline card">
+      <div className='card-content'>
+        <h2 className='card-data'>{((youtubeData.channelTotalsandVideos.totalVideoMetrics.likes / youtubeData.channelTotalsandVideos.totalVideoMetrics.views) * 100).toFixed(0)}%</h2>
+        <h3 className='card-header'>Likes to Views Percentage</h3>
+      </div>
     </div>
   )
 }

@@ -83,6 +83,9 @@ const ViewsPerMonth = () => {
         options={chart.options}
         series={chart.series}
         type='area'
+        height={450}
+        width={550}
+        style={{display: 'block'}}
       />
     </div>
   )

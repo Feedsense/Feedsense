@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {TwitterContext, YouTubeContext} from '../Analytics.jsx';
+import { IoChatbox } from 'react-icons/io5'
 
 const EngagementRate = () => {
 
@@ -14,8 +15,12 @@ const EngagementRate = () => {
   const youtubeEngagementRate = ((likes + dislikes + comments) / (youtubeData.channelTotalsandVideos.totalVideoMetrics.views * 100) * 100).toFixed(2);
 
   return (
-    <div className="outline">
-      <h3>Avg. Engagement Rate {((likes + dislikes + comments) / (youtubeData.channelTotalsandVideos.totalVideoMetrics.views * 100) * 100).toFixed(2) }%</h3>
+    <div id='engagement-rate' className="outline card">
+      <IoChatbox size={50}/>
+      <div className='card-content'>
+        <h2 className='card-data'>{((likes + dislikes + comments) / (youtubeData.channelTotalsandVideos.totalVideoMetrics.views * 100) * 100).toFixed(2) }%</h2>
+        <h3 className='card-header'>Avg. Engagement Rate</h3>
+      </div>
     </div>
   )
 }
