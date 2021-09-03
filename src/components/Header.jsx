@@ -1,28 +1,15 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< HEAD
-=======
 import ReactDOM from 'react-dom';
 
->>>>>>> d00d29a8d03ba165412d680ac28892ebb629404b
 import config from '../../env/config.js';
 import Auth from './Auth.js';
 import {Switch, Link, useHistory} from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import Modal from './modals/Modal.jsx';
-<<<<<<< HEAD
-import ModalViewer from './modals/useModal.jsx'
-
-import '../header.css'
-
-
-var Header = ({ setIsGoogleSignedIn }) => {
-  const {isShowing, toggle} = ModalViewer();
-=======
 import '../header.css'
 
 var Header = ({ setIsGoogleSignedIn }) => {
   const [ showModal, setShowModal ] = useState(false);
->>>>>>> d00d29a8d03ba165412d680ac28892ebb629404b
 
   const history = useHistory();
 

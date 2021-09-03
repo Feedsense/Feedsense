@@ -73,12 +73,6 @@ const Modal = ({show}) => {
             <button>Send Post</button>
           </form>
         </div>
-<<<<<<< HEAD
-        <p>
-          Hello, I'm modal.
-        </p>
-=======
->>>>>>> d00d29a8d03ba165412d680ac28892ebb629404b
       </div>
     </React.Fragment>
   )
