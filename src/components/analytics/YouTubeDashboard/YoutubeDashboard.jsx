@@ -5,6 +5,8 @@ import AvgViewPercent from './AvgViewPercent.jsx';
 import AvgViewDuration from './AvgViewDuration.jsx';
 import TotalMinutesWatched from './TotalMinutesWatched.jsx';
 import LikePercentage from './LikePercentage.jsx';
+import ViewsPerMonth from './ViewsPerMonth.jsx';
+
 
 const YoutubeDashboard = () => {
 
@@ -14,6 +16,7 @@ const YoutubeDashboard = () => {
       <AvgViewPercent />
       <TotalMinutesWatched />
       <LikePercentage />
+      <ViewsPerMonth />
       <LikesToViewsPlot />
       <Top100Videos />
     </div>

@@ -57,7 +57,7 @@ module.exports = {
             description: "",
             title: "Learn JSON in 10 Minutes"
           },
-          publishedAt: "2018-11-01T21:32:59Z",
+          publishedAt: "2021-07-01T21:32:59Z",
           title: "Learn JSON in 10 Minutes"
         },
         statistics: {
@@ -81,7 +81,7 @@ module.exports = {
             description: "",
             title: "Build Real Time Face Detection With JavaScript"
           },
-          publishedAt: "2019-05-21T21:32:59Z",
+          publishedAt: "2021-05-21T21:32:59Z",
           title: "Build Real Time Face Detection With JavaScript"
         },
         statistics: {
@@ -105,7 +105,7 @@ module.exports = {
             description: "",
             title: "8 Must Know JavaScript Array Methods"
           },
-          publishedAt: "2019-08-14T21:32:59Z",
+          publishedAt: "2021-08-14T21:32:59Z",
           title: "8 Must Know JavaScript Array Methods"
         },
         statistics: {
@@ -129,7 +129,7 @@ module.exports = {
             description: "",
             title: "Learn CSS in 20 Minutes"
           },
-          publishedAt: "2019-11-01T21:32:59Z",
+          publishedAt: "2021-03-24T21:32:59Z",
           title: "Learn CSS in 20 Minutes"
         },
         statistics: {
@@ -153,7 +153,7 @@ module.exports = {
             description: "",
             title: "Node.js Passport Login System Tutorial"
           },
-          publishedAt: "2019-02-19T21:32:59Z",
+          publishedAt: "2021-02-19T21:32:59Z",
           title: "Node.js Passport Login System Tutorial"
         },
         statistics: {
@@ -177,7 +177,7 @@ module.exports = {
             description: "",
             title: "What Is JWT and Why Should You Use JWT"
           },
-          publishedAt: "2019-07-28T21:32:59Z",
+          publishedAt: "2021-09-01T21:32:59Z",
           title: "What Is JWT and Why Should You Use JWT"
         },
         statistics: {
@@ -201,7 +201,7 @@ module.exports = {
             description: "",
             title: "Learn useEffect In 13 Minutes"
           },
-          publishedAt: "2019-07-30T21:32:59Z",
+          publishedAt: "2021-07-30T21:32:59Z",
           title: "Learn useEffect In 13 Minutes"
         },
         statistics: {
@@ -225,7 +225,7 @@ module.exports = {
             description: "",
             title: "Learn useState In 15 Minutes - React Hooks Explained"
           },
-          publishedAt: "2019-06-20T21:32:59Z",
+          publishedAt: "2021-06-20T21:32:59Z",
           title: "Learn useState In 15 Minutes - React Hooks Explained"
         },
         statistics: {
@@ -369,7 +369,7 @@ module.exports = {
             description: "",
             title: "These Mistakes Almost Stopped Me From Learning To Code"
           },
-          publishedAt: "2021-03-12T21:32:59Z",
+          publishedAt: "2020-10-12T21:32:59Z",
           title: "These Mistakes Almost Stopped Me From Learning To Code"
         },
         statistics: {
@@ -393,7 +393,7 @@ module.exports = {
             description: "",
             title: "Should You Use Tailwind CSS?"
           },
-          publishedAt: "2021-09-03T21:32:59Z",
+          publishedAt: "2020-11-01T21:32:59Z",
           title: "Should You Use Tailwind CSS?"
         },
         statistics: {
@@ -417,7 +417,7 @@ module.exports = {
             description: "",
             title: "Why I Get Up At 5AM And Why You Should Too"
           },
-          publishedAt: "2020-05-11T21:32:59Z",
+          publishedAt: "2020-12-11T21:32:59Z",
           title: "Why I Get Up At 5AM And Why You Should Too"
         },
         statistics: {
