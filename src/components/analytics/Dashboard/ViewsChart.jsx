@@ -4,7 +4,6 @@ import {TwitterContext, YouTubeContext} from '../Analytics.jsx';
 
 
 const ViewsChart = () => {
-
   const twitterData = useContext(TwitterContext);
   const youtubeData = useContext(YouTubeContext);
 

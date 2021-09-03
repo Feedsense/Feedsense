@@ -1,6 +1,10 @@
 const youtubeModels = require('../../database/models/youtube');
 const config =  require( '../../env/config.js');
 const axios = require('axios');
+const path = require('path');
+const fs = require('fs');
+const busboy = require('connect-busboy');
+const {google} = require('googleapis');
 
 module.exports = {
   getData: (req, res) => {
@@ -8,17 +12,14 @@ module.exports = {
       if (err) {
         return console.error('ERROR RETRIEVING DATA: ', err.stack);
       }
-
       res.status(200).send();
     });
   },
-
 
   getFeed: (req, res) => {
     let count = req.params.count ? '100' : req.params.count
     let url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=${config.youtubeAPI} HTTP/1.1&maxResults=100`;
     let token = req.params.access_token;
-
 
     axios.get(url, {headers: { Authorization: `Bearer ${token}` }})
       .then(data => {
@@ -54,7 +55,6 @@ module.exports = {
     .catch((err) => {
       console.error(err);
     })
-
   },
 
   getChannelAnalytics: (req, res) => {
@@ -206,5 +206,36 @@ module.exports = {
     .catch((err) => {
       console.error(err);
     })
+  },
+
+  postVideo: (req, res) => {
+    const youtube = google.youtube;
+    const clientID = config.clientId;
+    const clientSecret = config.OAuthData.clientSecret;
+    const clientURI = config.OAuthData.redirectURI;
+
+    req.pipe(req.busboy);
+
+    // var formData = new Map();
+
+    // req.busboy.on('field', (fieldname, val) => {
+    //   formData.set(fieldname, val);
+    //   console.log(formData);
+    // })
+    // console.log('Moving on!');
+
+    req.pipe(req.busboy);
+
+    req.busboy.on('file', (fieldname, file, filename) => {
+      console.log(`Upload of ${filename} started`);
+
+      const fwstream = fs.createWriteStream(path.join(__dirname, `/../../public/videos/${filename}`));
+      file.pipe(fwstream);
+
+      fwstream.on('close', () => {
+        console.log(`Upload of ${filename} complete`);
+        res.send();
+      });
+    });
   }
 }
