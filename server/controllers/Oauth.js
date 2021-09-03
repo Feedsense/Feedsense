@@ -33,7 +33,6 @@ module.exports = {
       if (err) {
         return console.error('ERROR RETRIEVING DATA: ', err.stack);
       }
-
       res.status(204).send('Successfully Updated');
     });
   },
@@ -46,7 +45,6 @@ module.exports = {
       if (err) {
         return console.error('ERROR RETRIEVING DATA: ', err.stack);
       }
-
       res.status(204).send('Successfully Updated');
     });
   }

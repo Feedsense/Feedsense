@@ -15,26 +15,6 @@ app.jsx
 
 }
 
-.logout-btn {
-  cursor: pointer;
-}
-
-/*
-Feed.jsx
-*/
-
-
-.header {
-  width: 100%;
-  height: 93px;
-  background-color: #F5F5F5;
-  margin: .5%, .5%, .5%, .5%;
-}
-
-.navButtonContainer {
-  float: right;
-}
-
 /*
 Analytics - Start
 */

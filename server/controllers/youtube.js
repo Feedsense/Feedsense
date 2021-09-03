@@ -13,12 +13,10 @@ module.exports = {
     });
   },
 
-
   getFeed: (req, res) => {
     let count = req.params.count ? '100' : req.params.count
     let url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=${config.youtubeAPI} HTTP/1.1&maxResults=100`;
     let token = req.params.access_token;
-
 
     axios.get(url, {headers: { Authorization: `Bearer ${token}` }})
       .then(data => {

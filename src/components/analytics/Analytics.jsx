@@ -1,15 +1,15 @@
 import React, { useState, useEffect, createContext } from 'react';
 import ProtectedRoute from '../ProtectedRoute.jsx';
 import config from '../../../env/config.js';
-import Auth from '../Auth.js';
-import { useHistory } from 'react-router-dom';
-import { useGoogleLogin } from 'react-google-login';
+
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Dashboard from './Dashboard/Dashboard.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
 import TwitterDashboard from './TwitterDashboard/TwitterDashboard.jsx';
 import YoutubeDashboard from './YouTubeDashboard/YoutubeDashboard.jsx';
 import axios from 'axios';
+
+import Header from '../Header.jsx'
 
 export const TwitterContext = React.createContext();
 export const YouTubeContext = React.createContext();
@@ -45,9 +45,8 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
 
   var youtubeTempData = {}
 
-  useEffect(() => {
-    signIn()
 
+  useEffect(() => {
     if (localStorage.access_token) {
 
       let todayDate = new Date().toISOString().slice(0, 10);
@@ -91,19 +90,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
 
   return (
     <React.Fragment>
-
-      <a className='logout-btn' onClick={() => {
-        setIsGoogleSignedIn(false);
-        const auth2 = window.gapi.auth2.getAuthInstance()
-        if (auth2 != null) {
-          auth2.signOut().then(
-            auth2.disconnect()
-          ).then(localStorage.clear())
-            .then(logout())
-        }
-      }
-      }>logout</a>
-
+      <Header setIsGoogleSignedIn={setIsGoogleSignedIn} />
       <div className="analytics-head">
         {youtubeDataReady && <YouTubeContext.Provider value={youtubeData} >
         <TwitterContext.Provider value={fakeTwitterData} >
@@ -118,7 +105,6 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
         </TwitterContext.Provider>
         </YouTubeContext.Provider>}
       </div>
-
     </React.Fragment>
   )
 }
