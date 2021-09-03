@@ -6,11 +6,9 @@ const TotalFollowers = () => {
   const twitterData = useContext(TwitterContext);
   const youtubeData = useContext(YouTubeContext);
 
-  console.log('total followers comp', youtubeData)
-
   return (
     <div className="outline">
-      <h3>Total Followers {twitterData.followers + Number(youtubeData.channelTotals.channelStatistics.subscriberCount)}</h3>
+      <h3>Total Followers/Subscribers {twitterData.followers + Number(youtubeData.channelTotalsandVideos.channelStatistics.subscriberCount)}</h3>
     </div>
   )
 }
