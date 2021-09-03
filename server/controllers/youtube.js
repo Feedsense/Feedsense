@@ -209,6 +209,21 @@ module.exports = {
   },
 
   postVideo: (req, res) => {
+    const youtube = google.youtube;
+    const clientID = config.clientId;
+    const clientSecret = config.OAuthData.clientSecret;
+    const clientURI = config.OAuthData.redirectURI;
+
+    req.pipe(req.busboy);
+
+    // var formData = new Map();
+
+    // req.busboy.on('field', (fieldname, val) => {
+    //   formData.set(fieldname, val);
+    //   console.log(formData);
+    // })
+    // console.log('Moving on!');
+
     req.pipe(req.busboy);
 
     req.busboy.on('file', (fieldname, file, filename) => {
@@ -222,4 +237,5 @@ module.exports = {
         res.send();
       });
     });
+  }
 }

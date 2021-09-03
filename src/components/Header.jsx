@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+
 import config from '../../env/config.js';
 import Auth from './Auth.js';
 import {Switch, Link, useHistory} from 'react-router-dom';
 import { useGoogleLogin } from 'react-google-login';
 import Modal from './modals/Modal.jsx';
-import ModalViewer from './modals/useModal.jsx'
-
 import '../header.css'
 
-
 var Header = ({ setIsGoogleSignedIn }) => {
-  const {isShowing, toggle} = ModalViewer();
+  const [ showModal, setShowModal ] = useState(false);
 
   const history = useHistory();
 
@@ -43,11 +42,8 @@ var Header = ({ setIsGoogleSignedIn }) => {
         <div className='navButtonContainer'>
           <Link to='/feed' className='navButton'>Feed</Link>
           <Link to='/Analytics/Analytics/dashboard' className='navButton'>Analytics</Link>
-          <div onClick={toggle} className='navButton'>Post</div>
-          <Modal
-            isShowing={isShowing}
-            hide={toggle}
-          />
+          <div onClick={()=>{setShowModal(!showModal)}} className='navButton'>Post</div>
+          {showModal ? ReactDOM.createPortal(<Modal show={setShowModal}/>, document.body) : null}
           <a className='navButton' onClick={() => {
             setIsGoogleSignedIn(false);
             const auth2 = window.gapi.auth2.getAuthInstance()
