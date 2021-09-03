@@ -17,7 +17,7 @@ var YouTubeFeedTile = (props) => {
         <a href={videoUrl}>
           <img
             className="YT-img"
-            src={props.postData.snippet.thumbnails.default.url}
+            src={props.postData.snippet.thumbnails.high.url}
           ></img>
         </a>
       </div>
