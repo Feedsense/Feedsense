@@ -23,6 +23,7 @@ var Header = ({ setIsGoogleSignedIn }) => {
   })
 
   var logout = () => {
+    location.reload();
     Auth.logout(() => {
       history.push('/');
     })
