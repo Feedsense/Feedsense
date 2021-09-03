@@ -61,4 +61,9 @@ router.get('/auth/twitter/callback', (req, res) => {
 
 
 }})})
+
+router.post('/twitter/tweet', (req, res) => {
+  twitter.postTweet(req.body)
+  res.status(400)
+})
 module.exports = router;
