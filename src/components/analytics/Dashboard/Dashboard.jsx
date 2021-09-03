@@ -6,6 +6,7 @@ import ViewsChart from './ViewsChart.jsx';
 import EngagementRate from './EngagementRate.jsx';
 import TotalTweets from './TotalTweets.jsx';
 import TotalVideos from './TotalVideos.jsx';
+import HashtagTreeMap from './HashtagTreeMap.jsx';
 import '../../../style.css';
 
 const Dashboard = () => {
@@ -19,6 +20,7 @@ const Dashboard = () => {
       <EngagementRate />
       <TotalTweets />
       <TotalVideos />
+      <HashtagTreeMap />
     </div>
   )
 }
