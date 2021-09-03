@@ -52,6 +52,51 @@ Analytics - Start
   justify-content: space-evenly;
 }
 
+.youtube-dashboard {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+}
+
+.dashboard-youtube-row-one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.dashboard-youtube-row-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.dashboard-youtube-row-three {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
+
+}
+
+.video-breakdown-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.video-breakdown {
+  border-radius: 20px;
+  background-color: white;
+  padding: 30px;
+  box-shadow: rgba(149, 157, 165, .3) 0px 8px 24px;
+}
+
+.youtube-row {
+  margin-bottom: 10px;
+}
+
 .card {
   display: flex;
   align-items: center;
@@ -95,7 +140,7 @@ Analytics - Start
 }
 
 .outline {
-  box-shadow: 3px 3px 5px black;
+  box-shadow: rgba(149, 157, 165, .3) 0px 8px 24px;
   background-color: white;
   /* border: 1px solid black; */
   border-radius: 10px;

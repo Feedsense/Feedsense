@@ -6,9 +6,9 @@ const YoutubeDashboard = () => {
   const youtubeData = useContext(YouTubeContext);
 
   return (
-    <div className="outline">
+    <div className='video-breakdown-container'>
       <h3>Videos Breakdown</h3>
-      <table>
+      <table className="video-breakdown">
         <thead>
           <tr>
             <th>#</th>

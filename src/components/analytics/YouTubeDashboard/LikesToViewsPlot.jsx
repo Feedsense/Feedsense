@@ -52,7 +52,9 @@ const LikesToViewsPlot = () => {
         options={plot.options}
         series={plot.series}
         type="scatter"
-        height={350}
+        height={450}
+        width={550}
+        style={{display: 'inline-block'}}
       />
     </div>
   )

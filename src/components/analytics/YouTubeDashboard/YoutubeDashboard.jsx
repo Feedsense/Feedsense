@@ -11,14 +11,20 @@ import ViewsPerMonth from './ViewsPerMonth.jsx';
 const YoutubeDashboard = () => {
 
   return (
-    <div>
-      <AvgViewDuration />
-      <AvgViewPercent />
-      <TotalMinutesWatched />
-      <LikePercentage />
-      <ViewsPerMonth />
-      <LikesToViewsPlot />
-      <Top100Videos />
+    <div className='youtube-dashboard'>
+      <div className='dashboard-youtube-row-one youtube-row'>
+        <AvgViewDuration />
+        <AvgViewPercent />
+      </div>
+      <div className='dashboard-youtube-row-two youtube-row'>
+        <TotalMinutesWatched />
+        <LikePercentage />
+      </div>
+      <div className='dashboard-youtube-row-three youtube-row'>
+        <ViewsPerMonth/>
+        <LikesToViewsPlot />
+      </div>
+      <Top100Videos style={{width: '100%'}}/>
     </div>
   )
 }
