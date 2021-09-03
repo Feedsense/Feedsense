@@ -20,6 +20,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
     if( localStorage.access_token) {
       axios.get(`/getYoutube/${localStorage.access_token}`)
         .then(data => {
+          console.log(data.data)
           setSocialMediaData(data.data);
         })
         .catch((err) => {
