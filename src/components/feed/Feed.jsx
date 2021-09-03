@@ -12,6 +12,11 @@ import Header from '../Header.jsx';
 import '../../feedStyle.css';
 import '../../style.css';
 
+var getTwit = () => {
+  axios.get('/getTwitterFeed')
+  .then(data => { console.log(data) })
+  .catch(err => console.log(err))
+}
 var Feed = ({ setIsGoogleSignedIn }) => {
   const [ exampleData, setExampleData ] = useState(feedExampleData);
   const [ socialMediaData, setSocialMediaData ] = useState([]);
@@ -67,6 +72,8 @@ var Feed = ({ setIsGoogleSignedIn }) => {
       <div className='header'>
         <Header setIsGoogleSignedIn={setIsGoogleSignedIn}/>
       </div>
+      <a href='http://localhost:3001/auth/twitter' target='_blank'>Add Twitter</a>
+      <button onClick={getTwit}>press me</button>
       <div>
       </div>
 
