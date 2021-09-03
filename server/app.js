@@ -1,7 +1,10 @@
-const express = require('express');
+const express = require('express')
+const session = require('express-session');
 const path = require('path');
-
+const cookieParser = require('cookie-parser');
 const app = express();
+app.use(session({secret: 'hello'}))
+app.use(cookieParser())
 const {serverip, serverport} = require('../env/config.js').serverconfig;
 const router = require('./routes');
 const logger = require('morgan');
