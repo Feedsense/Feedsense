@@ -12,13 +12,19 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-main">
-      <TotalFollowers />
-      <FollowersChart />
-      <TotalViews />
-      <ViewsChart />
-      <EngagementRate />
-      <TotalTweets />
-      <TotalVideos />
+      <div className='dashboard-main-row-one'>
+        <TotalFollowers />
+        <TotalViews />
+        <EngagementRate />
+      </div>
+      <div className='dashboard-main-row-two'>
+        <FollowersChart />
+        <ViewsChart />
+        <div className='dashboard-row-two-last'>
+          <TotalTweets />
+          <TotalVideos />
+        </div>
+      </div>
     </div>
   )
 }

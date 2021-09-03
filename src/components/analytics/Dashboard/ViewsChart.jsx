@@ -15,8 +15,8 @@ const ViewsChart = () => {
   };
 
   return (
-    <div className="outline">
-      <h3>Views/Impressions Breakdown</h3>
+    <div id='views-chart' className="outline">
+      <h3 className='chart-header'>Views/Impressions Breakdown</h3>
       <Chart
         options={viewsChart.chartOptions}
         series={viewsChart.series}

@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {TwitterContext, YouTubeContext} from '../Analytics.jsx';
+import { IoVideocam } from 'react-icons/io5';
 
 const TotalVideos = () => {
 
@@ -7,8 +8,12 @@ const TotalVideos = () => {
   const youtubeData = useContext(YouTubeContext);
 
   return (
-    <div className="outline">
-      <h3>Total Videos {Number(youtubeData.channelTotalsandVideos.channelStatistics.videoCount)}</h3>
+    <div id='total-videos' className="outline card">
+      <IoVideocam size={50} />
+      <div className='card-content'>
+        <h2 className='card-data'>{Number(youtubeData.channelTotalsandVideos.channelStatistics.videoCount)}</h2>
+        <h3 className='card-header'>Total Videos</h3>
+      </div>
     </div>
   )
 }

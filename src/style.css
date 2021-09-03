@@ -27,8 +27,58 @@ Analytics - Start
 }
 
 .dashboard-main {
-  margin-left: 30px;
+  width: 70%;
+  display:flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.dashboard-main-row-one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dashboard-main-row-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dashboard-row-two-last {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  min-width: 375px;
+}
+
+.card-content {
+  margin-left: 13px;
+}
+
+.card-header {
+  margin: 0px;
+}
+
+.card-data {
+  margin: 0px;
+}
+
+.chart-header {
+  text-align: center;
+}
+
+/* .icon {
+  width: 100px;
+} */
 
 .sidebar-main {
   display: flex;
@@ -45,10 +95,16 @@ Analytics - Start
 }
 
 .outline {
-  border: 3px solid black;
+  box-shadow: 3px 3px 5px black;
+  background-color: white;
+  /* border: 1px solid black; */
   border-radius: 10px;
-  margin: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
   padding: 5px;
+  width: 375px;
 }
 
 .split {

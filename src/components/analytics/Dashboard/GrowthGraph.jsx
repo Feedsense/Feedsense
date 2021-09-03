@@ -31,12 +31,14 @@ const GrowthGraph = () => {
   }
 
   return (
-    <Chart
-    options={growthChart.chartOptions}
-    series={growthChart.series}
-    type='line'
-    width='700'
-    />
+    <div id='growth-chart' className='chart outline'>
+      <Chart
+        options={growthChart.chartOptions}
+        series={growthChart.series}
+        type='line'
+        width='700'
+      />
+    </div>
   )
 }
 
