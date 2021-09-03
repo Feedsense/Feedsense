@@ -7,7 +7,6 @@ import Feed from './feed/Feed.jsx';
 import Analytics from './analytics/Analytics.jsx';
 
 var App = () => {
-
   const [isGoogleSignedIn, setIsGoogleSignedIn] = useState(false)
 
   return (
