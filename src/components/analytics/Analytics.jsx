@@ -8,6 +8,7 @@ import TwitterDashboard from './TwitterDashboard/TwitterDashboard.jsx';
 import YoutubeDashboard from './YouTubeDashboard/YoutubeDashboard.jsx';
 import axios from 'axios';
 import Header from '../Header.jsx'
+import FakeYouTubeData from './FakeYoutubeData.js';
 
 export const TwitterContext = React.createContext();
 export const YouTubeContext = React.createContext();
@@ -32,11 +33,12 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
   };
 
   const [fakeTwitterData, SetFakeTwitterData] = useState({
-    followers: 35910,
-    totalImpresssions: 1823834,
+    followers: 351910,
+    totalImpresssions: 28230834,
     engagementRate: 0.035,
-    totalTweets: 1286
+    totalTweets: 3286
   });
+  const [fakeYouTubeData, SetFakeYouTubeData] = useState(FakeYouTubeData);
 
   const [youtubeData, SetYoutubeData] = useState({})
   const [youtubeDataReady, SetYoutubeDataReady] = useState(false)
