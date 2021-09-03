@@ -57,12 +57,12 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
         <div className='btn-center'>
           <GoogleLogin
               clientId={config.clientId}
-              // render={renderProps => (
-              //   <div id="customBtn" className="customGPlusSignIn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-              //     <span className="icon"></span>
-              //     <span className="buttonText">Login</span>
-              //   </div>
-              // )}
+              render={renderProps => (
+                <div id="customBtn" className="customGPlusSignIn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                  <span className="icon"></span>
+                  <span className="buttonText">Login</span>
+                </div>
+              )}
               buttonText="Login"
               onSuccess={responseGoogle}
               onFailure={()=>{return console.error('ERROR WITH OAUTH ID')}}
@@ -75,7 +75,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
           Please login with google
         </div>
       </div>
-    </div>
+   </div>
   )
 };
 
