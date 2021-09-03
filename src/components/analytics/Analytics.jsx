@@ -42,7 +42,6 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
   const [fakeYouTubeData, SetFakeYouTubeData] = useState(FakeYouTubeData);
   //FAKE DATA END ---------------------------------------------------
 
-
   const [youtubeData, SetYoutubeData] = useState({})
   const [youtubeDataReady, SetYoutubeDataReady] = useState(false)
 
@@ -94,7 +93,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
     <React.Fragment>
       <Header setIsGoogleSignedIn={setIsGoogleSignedIn} />
       <div className="analytics-head">
-        {youtubeDataReady && <YouTubeContext.Provider value={fakeYouTubeData} >
+        {youtubeDataReady && <YouTubeContext.Provider value={youtubeData} >
         <TwitterContext.Provider value={fakeTwitterData} >
           <Router>
             <Sidebar />
