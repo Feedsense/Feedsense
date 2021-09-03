@@ -17,7 +17,7 @@ const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
         <form>
           <label>
             Status:
-            <input type="text" name="name" />
+            <textarea type="text" name="name" />
           </label>
           <input type="submit" value="Submit" />
         </form>
