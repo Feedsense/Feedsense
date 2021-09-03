@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {TwitterContext, YouTubeContext} from '../Analytics.jsx';
+import { TwitterContext, YouTubeContext } from '../Analytics.jsx';
 
 const TotalFollowers = () => {
 
@@ -7,7 +7,9 @@ const TotalFollowers = () => {
   const youtubeData = useContext(YouTubeContext);
 
   return (
-    <h3>Total Followers {twitterData.followers + youtubeData.subscribers}</h3>
+    <div className="outline">
+      <h3>Total Followers {twitterData.followers + youtubeData.subscribers}</h3>
+    </div>
   )
 }
 

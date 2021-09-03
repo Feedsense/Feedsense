@@ -3,13 +3,12 @@ import Chart from 'react-apexcharts';
 import {TwitterContext, YouTubeContext} from '../Analytics.jsx';
 
 
-const FollowersChart = () => {
-
+const ViewsChart = () => {
   const twitterData = useContext(TwitterContext);
   const youtubeData = useContext(YouTubeContext);
 
-  var followersChart = {
-    series: [twitterData.followers, youtubeData.subscribers],
+  var viewsChart = {
+    series: [twitterData.totalImpresssions, youtubeData.totalViews],
     chartOptions: {
       labels: ['Twitter', 'YouTube']
     }
@@ -17,10 +16,10 @@ const FollowersChart = () => {
 
   return (
     <div className="outline">
-      <h3>Followers Breakdown</h3>
+      <h3>Views/Impressions Breakdown</h3>
       <Chart
-        options={followersChart.chartOptions}
-        series={followersChart.series}
+        options={viewsChart.chartOptions}
+        series={viewsChart.series}
         type='donut'
         width='380'
       />
@@ -28,4 +27,4 @@ const FollowersChart = () => {
   )
 }
 
-export default FollowersChart;
+export default ViewsChart;

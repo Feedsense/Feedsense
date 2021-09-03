@@ -1,23 +1,33 @@
+.tile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tile-group {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+/* ----- tiles ----*/
 .YT-post-tile{
-  background-color: lightgray;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 5px;
-  grid-auto-rows: minmax(100px, auto);
-  margin: 0 25% 2% 25%;
-  padding: 2% 2%;
-  border-radius: 5px;
+  margin: 0 5px 10px 5px;
+  border-radius: 10px;
+  padding: 2em;
+  border: 1px solid #ccc;
+  display: block;
+  color: black;
+  box-shadow: rgba(149, 157, 165, .3) 0px 8px 24px;
+  height: 550px;
+  width: 315px;
+
 }
 
 .TW-post-tile{
   background-color: lightgray;
-  margin: 0 25% 2% 25%;
+  margin: 0 35% 2% 35%;
   padding: 2% 2%;
   border-radius: 5px;
-}
-
-.TW-post-tile:hover, .YT-post-tile:hover {
-  background-color: rgb(185, 185, 185);
 }
 
 .TW-icon {
@@ -32,14 +42,30 @@
   color: #FF0000;
 }
 
+.YT-img {
+  margin: 0 auto 0 auto;
+  width: 275px;
+  height: 250px;
+  object-fit: contain;
+}
+
 .tile-img {
-  grid-column: 1 / 2;
+
+  grid-column: 1 / 7;
   grid-row: 1;
 }
 
+.prefix, .title, .youtube-author, .youtube-body {
+  font-family: 'Montserrat:wght@100', sans-serif;
+}
+
+.title {
+  margin-bottom: 2%;
+}
+
 .tile-content {
-  grid-column: 2 / 7;
-  grid-row: 1;
+  grid-column: 1 / 7;
+  grid-row: 2;
 }
 
 .timestamp {
@@ -50,6 +76,7 @@
   margin-right: 0.5%;
 }
 
+/* ----- modal ----- */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -72,7 +99,7 @@
   overflow-y: auto;
   outline: 0;
 }
-/* ----- modal ----- */
+
 .modal {
   z-index: 100;
   background: white;
