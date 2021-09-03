@@ -80,7 +80,7 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
           Please login with google
         </div>
       </div>
-    </div>
+   </div>
   )
 };
 

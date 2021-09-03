@@ -8,7 +8,7 @@ const TotalViews = () => {
 
   return (
     <div className="outline">
-      <h3>Total Views/Impressions {twitterData.totalImpresssions + youtubeData.totalViews}</h3>
+      <h3>Total Views/Impressions {twitterData.totalImpresssions + Number(youtubeData.channelTotalsandVideos.channelStatistics.viewCount)}</h3>
     </div>
   )
 }

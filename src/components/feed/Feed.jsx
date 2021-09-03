@@ -12,6 +12,11 @@ import Header from '../Header.jsx';
 import '../../feedStyle.css';
 import '../../style.css';
 
+var getTwit = () => {
+  axios.get('/getTwitterFeed')
+  .then(data => { console.log(data) })
+  .catch(err => console.log(err))
+}
 var Feed = ({ setIsGoogleSignedIn }) => {
   const [ exampleData, setExampleData ] = useState(feedExampleData);
   const [ socialMediaData, setSocialMediaData ] = useState([]);
@@ -20,6 +25,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
     if( localStorage.access_token) {
       axios.get(`/getYoutube/${localStorage.access_token}`)
         .then(data => {
+          console.log(data.data)
           setSocialMediaData(data.data);
         })
         .catch((err) => {
@@ -28,6 +34,8 @@ var Feed = ({ setIsGoogleSignedIn }) => {
     }
   }, []);
 
+  var totalData = socialMediaData.concat(exampleData);
+  console.log(totalData);
   var sortedSocialmedia = [];
   if (socialMediaData.length > 0) {
     for (var i = 0; i < socialMediaData.length; i++) {
@@ -35,10 +43,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
         sortedSocialmedia.push(socialMediaData[i]);
       } else {
         for (var j = 0; j < sortedSocialmedia.length; j++) {
-          if (
-            socialMediaData[i].snippet.publishedAt >
-            sortedSocialmedia[j].snippet.publishedAt
-          ) {
+          if (socialMediaData[i].snippet.publishedAt > sortedSocialmedia[j].snippet.publishedAt) {
             sortedSocialmedia.splice(j, 0, socialMediaData[i]);
             break;
           }
@@ -67,6 +72,8 @@ var Feed = ({ setIsGoogleSignedIn }) => {
       <div className='header'>
         <Header setIsGoogleSignedIn={setIsGoogleSignedIn}/>
       </div>
+      <a href='http://localhost:3001/auth/twitter' target='_blank'>Add Twitter</a>
+      <button onClick={getTwit}>press me</button>
       <div>
       </div>
 
@@ -74,8 +81,8 @@ var Feed = ({ setIsGoogleSignedIn }) => {
         {sortedSocialmedia2D.map((post, index) => {
           if (index === 0) {
             return (
-              <div className="tile-group">
-                <YouTubeFeedTile postData={post[0]} />
+              <div key={index} className="tile-group">
+                <YouTubeFeedTile  postData={post[0]} />
                 <YouTubeFeedTile  postData={post[1]} />
                 <YouTubeFeedTile  postData={post[2]} />
                 <YouTubeFeedTile  postData={post[3]} />
@@ -85,18 +92,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
           }
           if (index === 1) {
             return (
-              <div className="tile-group">
-                <YouTubeFeedTile  postData={post[0]} />
-                <YouTubeFeedTile  postData={post[1]} />
-                <YouTubeFeedTile  postData={post[2]} />
-                <YouTubeFeedTile  postData={post[3]} />
-                <YouTubeFeedTile  postData={post[4]} />
-              </div>
-            );
-          }
-          if (index === 2) {
-            return (
-              <div className="tile-group">
+              <div key={index} className="tile-group">
                 <YouTubeFeedTile postData={post[0]} />
                 <YouTubeFeedTile postData={post[1]} />
                 <YouTubeFeedTile postData={post[2]} />
@@ -105,9 +101,20 @@ var Feed = ({ setIsGoogleSignedIn }) => {
               </div>
             );
           }
+          if (index === 2) {
+            return (
+              <div key={index} className="tile-group">
+                <YouTubeFeedTile  postData={post[0]} />
+                <YouTubeFeedTile  postData={post[1]} />
+                <YouTubeFeedTile  postData={post[2]} />
+                <YouTubeFeedTile  postData={post[3]} />
+                <YouTubeFeedTile  postData={post[4]} />
+              </div>
+            );
+          }
           if (index === 3) {
             return (
-              <div className="tile-group">
+              <div key={index} className="tile-group">
                 <YouTubeFeedTile postData={post[0]} />
                 <YouTubeFeedTile postData={post[1]} />
                 <YouTubeFeedTile postData={post[2]} />
@@ -118,7 +125,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
           }
           if (index === 4) {
             return (
-              <div className="tile-group">
+              <div key={index} className="tile-group">
                 <YouTubeFeedTile postData={post[0]} />
                 <YouTubeFeedTile postData={post[1]} />
                 <YouTubeFeedTile postData={post[2]} />
@@ -129,7 +136,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
           }
           if (index === 5) {
             return (
-              <div className="tile-group">
+              <div key={index} className="tile-group">
                 <YouTubeFeedTile postData={post[0]} />
                 <YouTubeFeedTile postData={post[1]} />
                 <YouTubeFeedTile postData={post[2]} />
@@ -140,7 +147,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
           }
           if (index === 6) {
             return (
-              <div className="tile-group">
+              <div key={index} className="tile-group">
                 <YouTubeFeedTile postData={post[0]} />
                 <YouTubeFeedTile postData={post[1]} />
                 <YouTubeFeedTile postData={post[2]} />
@@ -151,7 +158,7 @@ var Feed = ({ setIsGoogleSignedIn }) => {
           }
           if (index === 7) {
             return (
-              <div className="tile-group">
+              <div key={index} className="tile-group">
                 <YouTubeFeedTile postData={post[0]} />
                 <YouTubeFeedTile postData={post[1]} />
                 <YouTubeFeedTile postData={post[2]} />

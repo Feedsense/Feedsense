@@ -8,7 +8,7 @@ const ViewsChart = () => {
   const youtubeData = useContext(YouTubeContext);
 
   var viewsChart = {
-    series: [twitterData.totalImpresssions, youtubeData.totalViews],
+    series: [twitterData.totalImpresssions, Number(youtubeData.channelTotalsandVideos.channelStatistics.viewCount)],
     chartOptions: {
       labels: ['Twitter', 'YouTube']
     }

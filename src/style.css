@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 * {
   font-family: 'Montserrat', sans-serif;
 }
@@ -29,8 +33,10 @@ Analytics - Start
 .sidebar-main {
   display: flex;
   flex-direction: column;
-  padding: 40px;
-  background-color: #2193CC;
+  background-color: #fcfcfc;
+  text-decoration: none;
+  padding: 5% 2% 0 2%;
+  box-shadow: rgba(149, 157, 165, .3) 0px 8px 24px;
 }
 
 .inline-row {
@@ -40,7 +46,7 @@ Analytics - Start
 
 .outline {
   border: 3px solid black;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 5px;
   padding: 5px;
 }
@@ -52,6 +58,28 @@ Analytics - Start
 .equalVertical {
   align-items: center;
   margin: 0 5px;
+}
+
+.dashBoardOption {
+  text-decoration: none;
+  color: #6C6B6C;
+  padding: 7px 40px 7px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.dashBoardOption:hover {
+ color: #379FFF;
+}
+
+.currentOption {
+  background-color: #379FFF;
+  color: #FFFEFF;
+}
+
+.currentOption:hover {
+  color: #FFFEFF;
 }
 
 /*
