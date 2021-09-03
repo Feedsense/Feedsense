@@ -10,3 +10,5 @@ CREATE TABLE public.users (
   twitter_key text,
   youtube_key text
 );
+
+-- copy path, login to psql and =>  \i {path copied for schema}

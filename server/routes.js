@@ -5,7 +5,7 @@ const path = require('path');
 const youtubeCtrl = require('../server/controllers/youtube');
 const OauthCtrl = require('../server/controllers/Oauth.js');
 
-router.get('/auth/:fname/:gname/:id', OauthCtrl.newUser);
+router.post('/auth/:fname/:gname/:id', OauthCtrl.newUser);
 router.put('/authAddTwitter/:id/:tid', OauthCtrl.updateTwitter);
 router.put('/authAddYoutube/:id/:yid', OauthCtrl.updateYoutube);
 

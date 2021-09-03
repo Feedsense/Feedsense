@@ -4,6 +4,7 @@ import Auth from './Auth.js';
 import config from '../../env/config.js';
 import { GoogleLogin } from 'react-google-login';
 import { useGoogleLogin } from 'react-google-login';
+import axios from 'axios';
 
 import '../landingStyle.css';
 
@@ -38,6 +39,10 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
     localStorage.given_name = response.profileObj.givenName;
     localStorage.image_url = response.profileObj.imageUrl;
 
+    axios.post(`/auth/${response.profileObj.familyName}/${response.profileObj.givenName}/${response.tokenObj.id_token}`)
+      .then(result => {console.log('success saving to db')})
+      .catch(err => {return console.error('Error saving to DB')});
+
     Auth.login(() => {
       history.push('/feed');
     })
@@ -57,12 +62,12 @@ var LandingPage = ({ isGoogleSignedIn, setIsGoogleSignedIn }) => {
         <div className='btn-center'>
           <GoogleLogin
               clientId={config.clientId}
-              // render={renderProps => (
-              //   <div id="customBtn" className="customGPlusSignIn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-              //     <span className="icon"></span>
-              //     <span className="buttonText">Login</span>
-              //   </div>
-              // )}
+              render={renderProps => (
+                <div id="customBtn" className="customGPlusSignIn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                  <span className="icon"></span>
+                  <span className="buttonText">Login</span>
+                </div>
+              )}
               buttonText="Login"
               onSuccess={responseGoogle}
               onFailure={()=>{return console.error('ERROR WITH OAUTH ID')}}

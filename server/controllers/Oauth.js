@@ -11,10 +11,10 @@ module.exports = {
         return console.error('ERROR RETRIEVING DATA: ', err.stack);
       }
 
-      if(result.exit === true) {
-        res.send('User checks out')
+      if(result.exists === true) {
+        res.status(204).send('User checks out')
       } else {
-        Oauth.addUser(given_name, family_name, oauth_id, (err, result) => {
+        Oauth.addUser(given_name, family_name, (err, result) => {
           if (err) {
             return console.error('ERROR RETRIEVING DATA: ', err.stack);
           }

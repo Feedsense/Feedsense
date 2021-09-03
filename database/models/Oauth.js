@@ -7,6 +7,7 @@ module.exports = {
         return client.query(`SELECT EXISTS (SELECT 1 FROM users WHERE given_name = '${given_name}' AND family_name = '${family_name}');`)
           .then(res => {
             client.release();
+            console.log(res.rows[0])
             return callback(null, res.rows[0]);
           })
           .catch(err => {
@@ -16,10 +17,10 @@ module.exports = {
       })
   },
 
-  addUser: (given_name, family_name, oauth_id, callback) => {
+  addUser: (given_name, family_name, callback) => {
     pool.connect()
       .then(client => {
-        return client.query(`INSERT INTO users(given_name, family_name, oauth_id) VALUES('${given_name}','${family_name}','${oauth_id}');`)
+        return client.query(`INSERT INTO users(given_name, family_name) VALUES('${given_name}','${family_name}');`)
           .then(res => {
             client.release();
             return callback(null, true);
