@@ -8,7 +8,7 @@ import TotalTweets from './TotalTweets.jsx';
 import TotalVideos from './TotalVideos.jsx';
 import '../../../style.css';
 
-const Dashboard = (props) => {
+const Dashboard = () => {
 
   return (
     <div className="dashboard-main">

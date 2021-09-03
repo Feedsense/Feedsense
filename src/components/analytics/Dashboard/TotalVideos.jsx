@@ -8,7 +8,7 @@ const TotalVideos = () => {
 
   return (
     <div className="outline">
-      <h3>Total Videos {youtubeData.totalVideos}</h3>
+      <h3>Total Videos {Number(youtubeData.channelTotalsandVideos.channelStatistics.videoCount)}</h3>
     </div>
   )
 }
