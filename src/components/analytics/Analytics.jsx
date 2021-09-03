@@ -32,6 +32,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
     })
   };
 
+  //FAKE DATA START ---------------------------------------------------
   const [fakeTwitterData, SetFakeTwitterData] = useState({
     followers: 351910,
     totalImpresssions: 28230834,
@@ -39,6 +40,8 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
     totalTweets: 3286
   });
   const [fakeYouTubeData, SetFakeYouTubeData] = useState(FakeYouTubeData);
+  //FAKE DATA END ---------------------------------------------------
+
 
   const [youtubeData, SetYoutubeData] = useState({})
   const [youtubeDataReady, SetYoutubeDataReady] = useState(false)
@@ -66,7 +69,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
         console.error(err);
       })
 
-      const promise4 = axios.get(`/getYoutubeChannelTotalsAndVideos/${localStorage.access_token}/${todayDate}`)
+      const promise3 = axios.get(`/getYoutubeChannelTotalsAndVideos/${localStorage.access_token}/${todayDate}`)
       .then((response) => {
         youtubeTempData.channelTotalsandVideos = response.data
       })
@@ -74,7 +77,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
         console.error(err);
       })
 
-      Promise.all([promise1, promise2, promise4])
+      Promise.all([promise1, promise2, promise3])
       .then(() => {
         return SetYoutubeData(youtubeTempData)
       })
@@ -91,7 +94,7 @@ const Analytics = ({ setIsGoogleSignedIn }) => {
     <React.Fragment>
       <Header setIsGoogleSignedIn={setIsGoogleSignedIn} />
       <div className="analytics-head">
-        {youtubeDataReady && <YouTubeContext.Provider value={youtubeData} >
+        {youtubeDataReady && <YouTubeContext.Provider value={fakeYouTubeData} >
         <TwitterContext.Provider value={fakeTwitterData} >
           <Router>
             <Sidebar />
