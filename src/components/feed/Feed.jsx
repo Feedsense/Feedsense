@@ -28,6 +28,8 @@ var Feed = ({ setIsGoogleSignedIn }) => {
     }
   }, []);
 
+  var totalData = socialMediaData.concat(exampleData);
+  console.log(totalData);
   var sortedSocialmedia = [];
   if (socialMediaData.length > 0) {
     for (var i = 0; i < socialMediaData.length; i++) {
