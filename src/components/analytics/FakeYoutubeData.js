@@ -58,6 +58,7 @@ module.exports = {
             title: "Learn JSON in 10 Minutes"
           },
           publishedAt: "2021-07-01T21:32:59Z",
+          tags: ['Javascript', 'CSS', 'WebDevelopment'],
           title: "Learn JSON in 10 Minutes"
         },
         statistics: {
@@ -82,6 +83,7 @@ module.exports = {
             title: "Build Real Time Face Detection With JavaScript"
           },
           publishedAt: "2021-05-21T21:32:59Z",
+          tags: ['AI', 'Programming', 'WebDevelopment'],
           title: "Build Real Time Face Detection With JavaScript"
         },
         statistics: {
@@ -106,6 +108,7 @@ module.exports = {
             title: "8 Must Know JavaScript Array Methods"
           },
           publishedAt: "2021-08-14T21:32:59Z",
+          tags: ['Javascript', 'Arrays', 'Programming', 'WebDevelopment'],
           title: "8 Must Know JavaScript Array Methods"
         },
         statistics: {
@@ -130,6 +133,7 @@ module.exports = {
             title: "Learn CSS in 20 Minutes"
           },
           publishedAt: "2021-03-24T21:32:59Z",
+          tags: ['UI', 'Front End Development', 'CSS', 'WebDevelopment'],
           title: "Learn CSS in 20 Minutes"
         },
         statistics: {
@@ -154,6 +158,7 @@ module.exports = {
             title: "Node.js Passport Login System Tutorial"
           },
           publishedAt: "2021-02-19T21:32:59Z",
+          tags: ['Node.js', 'Javascript', 'Passport', 'Programming', 'WebDevelopment'],
           title: "Node.js Passport Login System Tutorial"
         },
         statistics: {
@@ -178,6 +183,7 @@ module.exports = {
             title: "What Is JWT and Why Should You Use JWT"
           },
           publishedAt: "2021-09-01T21:32:59Z",
+          tags: ['JWT', 'Programming', 'WebDevelopment'],
           title: "What Is JWT and Why Should You Use JWT"
         },
         statistics: {
@@ -202,6 +208,7 @@ module.exports = {
             title: "Learn useEffect In 13 Minutes"
           },
           publishedAt: "2021-07-30T21:32:59Z",
+          tags: ['React', 'React Hooks', 'WebDevelopment'],
           title: "Learn useEffect In 13 Minutes"
         },
         statistics: {
@@ -226,6 +233,7 @@ module.exports = {
             title: "Learn useState In 15 Minutes - React Hooks Explained"
           },
           publishedAt: "2021-06-20T21:32:59Z",
+          tags: ['React', 'React Hooks', 'WebDevelopment'],
           title: "Learn useState In 15 Minutes - React Hooks Explained"
         },
         statistics: {
@@ -250,6 +258,7 @@ module.exports = {
             title: "I Challenged The CSS King To A CSS Battle"
           },
           publishedAt: "2021-01-19T21:32:59Z",
+          tags: ['CSS', 'Challenge'],
           title: "I Challenged The CSS King To A CSS Battle"
         },
         statistics: {
@@ -274,6 +283,7 @@ module.exports = {
             title: "I Challenged The AlgoExpert To A Trivia Game - Who Wants To Be A Megabit"
           },
           publishedAt: "2021-04-17T21:32:59Z",
+          tags: ['Algorithms', 'Challenge'],
           title: "I Challenged The AlgoExpert To A Trivia Game - Who Wants To Be A Megabit"
         },
         statistics: {
@@ -298,6 +308,7 @@ module.exports = {
             title: "Learn Express JS In 35 Minutes"
           },
           publishedAt: "2021-08-14T21:32:59Z",
+          tags: ['Node.js', 'Express', 'WebDevelopment'],
           title: "Learn Express JS In 35 Minutes"
         },
         statistics: {
@@ -322,6 +333,7 @@ module.exports = {
             title: "Learn Express Middleware In 14 Minutes"
           },
           publishedAt: "2021-06-10T21:32:59Z",
+          tags: ['Node.js', 'Express', 'WebDevelopment'],
           title: "Learn Express Middleware In 14 Minutes"
         },
         statistics: {
@@ -346,6 +358,7 @@ module.exports = {
             title: "Stop Trying To Memorize Code - Do This Instead"
           },
           publishedAt: "2021-04-17T21:32:59Z",
+          tags: ['Programming', 'WebDevelopment'],
           title: "Stop Trying To Memorize Code - Do This Instead"
         },
         statistics: {
@@ -370,6 +383,7 @@ module.exports = {
             title: "These Mistakes Almost Stopped Me From Learning To Code"
           },
           publishedAt: "2020-10-12T21:32:59Z",
+          tags: ['Programming', 'WebDevelopment'],
           title: "These Mistakes Almost Stopped Me From Learning To Code"
         },
         statistics: {
@@ -394,6 +408,7 @@ module.exports = {
             title: "Should You Use Tailwind CSS?"
           },
           publishedAt: "2020-11-01T21:32:59Z",
+          tags: ['Programming', 'CSS', 'WebDevelopment'],
           title: "Should You Use Tailwind CSS?"
         },
         statistics: {
@@ -418,6 +433,7 @@ module.exports = {
             title: "Why I Get Up At 5AM And Why You Should Too"
           },
           publishedAt: "2020-12-11T21:32:59Z",
+          tags: ['Success', 'Goals'],
           title: "Why I Get Up At 5AM And Why You Should Too"
         },
         statistics: {

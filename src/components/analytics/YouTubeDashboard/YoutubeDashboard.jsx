@@ -7,7 +7,6 @@ import TotalMinutesWatched from './TotalMinutesWatched.jsx';
 import LikePercentage from './LikePercentage.jsx';
 import ViewsPerMonth from './ViewsPerMonth.jsx';
 
-
 const YoutubeDashboard = () => {
 
   return (
