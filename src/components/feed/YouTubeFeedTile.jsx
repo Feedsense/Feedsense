@@ -14,10 +14,10 @@ var YouTubeFeedTile = (props) => {
         {moment(props.postData.snippet.publishedAt).startOf("hour").fromNow()}
       </div>
       <div className="tile-img">
-        <a href={videoUrl}>
+        <a target="_blank" href={videoUrl}>
           <img
             className="YT-img"
-            src={props.postData.snippet.thumbnails.default.url}
+            src={props.postData.snippet.thumbnails.high.url}
           ></img>
         </a>
       </div>
